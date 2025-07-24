@@ -326,7 +326,7 @@ func handle_binary_data():
         # Read binary response
         var response = serial.read_bytes(9)  # Expecting 9 bytes
         if response.size() == 9:
-            var co2_value = (response[2] << 8) | response[3]
+            var co2_value = (response[2] * 256) + response[3]  # Convert bytes to value
             print("CO2 Level: ", co2_value, " ppm")
         
         serial.close()</code></pre>
