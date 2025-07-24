@@ -30,95 +30,211 @@ import '../styles/global.css';
     <section class="section-padding">
       <div class="container-custom">
         <div class="max-w-6xl mx-auto">
-          <div class="flex items-center mb-12">
-            <div class="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-lg mr-4">
-              <svg class="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-              </svg>
+          <div class="flex items-center justify-between mb-8">
+            <div class="flex items-center">
+              <div class="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-lg mr-4">
+                <svg class="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                </svg>
+              </div>
+              <h2 class="text-3xl md:text-4xl font-bold font-display text-gray-900 dark:text-white">
+                Journal Publications
+                <span class="text-lg font-normal text-gray-500 dark:text-gray-400 ml-2">(6)</span>
+              </h2>
             </div>
-            <h2 class="text-3xl md:text-4xl font-bold font-display text-gray-900 dark:text-white">
-              Journal Publications
-            </h2>
           </div>
           
-          <div class="space-y-6">
-            <!-- Publication 1 -->
-            <div class="card hover:shadow-xl transition-shadow duration-300 group">
-              <div class="flex flex-col lg:flex-row lg:items-start gap-4">
-                <div class="flex-shrink-0">
-                  <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center text-white font-bold">
-                    1
+          <div id="journal-publications" class="space-y-4">
+            <!-- Journal Publication 6 - 2020 -->
+            <div class="publication-card card hover:shadow-xl transition-all duration-300 group">
+              <div class="flex flex-col gap-4">
+                <div class="flex items-start gap-4">
+                  <div class="flex-shrink-0">
+                    <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center">
+                      <span class="text-white font-bold text-sm">2020</span>
+                    </div>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-tight">
+                      Dosimetric and Clinical Advantages of Adapting the DIBH Technique to Hybrid Solitary Dynamic Portal Radiotherapy for Left-sided Chest-wall plus Regional Nodal Irradiation
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm mb-2">
+                      <span class="font-medium">Authors:</span> Mohamathu Rafic, Patricia Solomon, Timothy Peace Balasingh Santosh, 
+                      <span class="font-semibold text-blue-600 dark:text-blue-400">Sujith Christopher</span>, Selva Mani, Paul Ravindran
+                    </p>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-3">
+                      <span class="font-medium">Journal:</span> Medical Dosimetry, 45(3), 256–263
+                    </p>
                   </div>
                 </div>
-                <div class="flex-1">
-                  <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                    Planar and Volumetric Imaging Dosimetry for Longitudinal Projection Extended Cone Beam CT based Adaptive Radiotherapy
-                  </h3>
-                  <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">
-                    <span class="font-medium">Authors:</span> K Mohamathu Rafic, Ebenezer Suman Babu, S Timothy Peace Balasingh, 
-                    <span class="font-semibold text-blue-600 dark:text-blue-400">Sujith Christopher J</span>, Abel Juhan Thomas, B Paul Ravindran
-                  </p>
-                  <div class="flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs font-medium rounded-full">Medical Physics</span>
-                    <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-xs font-medium rounded-full">Radiation Therapy</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Publication 2 -->
-            <div class="card hover:shadow-xl transition-shadow duration-300 group">
-              <div class="flex flex-col lg:flex-row lg:items-start gap-4">
-                <div class="flex-shrink-0">
-                  <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold">
-                    2
-                  </div>
-                </div>
-                <div class="flex-1">
-                  <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
-                    A new strategy to determine off-axis dosimetric leaf gap using optically stimulated luminescence dosimeters and an electronic portal imaging device
-                  </h3>
-                  <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">
-                    <span class="font-medium">Authors:</span> Divyalakshmi, Timothy Peace Balasingh Santosh, KM Rafic, Amalan Sebastin, Jose Solomon, 
-                    <span class="font-semibold text-purple-600 dark:text-purple-400">Sujith Christopher</span>
-                  </p>
-                  <div class="flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-xs font-medium rounded-full">Dosimetry</span>
-                    <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs font-medium rounded-full">Medical Imaging</span>
-                  </div>
+                <div class="flex flex-wrap gap-2 ml-14">
+                  <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs font-medium rounded-full">Radiation Therapy</span>
+                  <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs font-medium rounded-full">DIBH Technique</span>
+                  <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-xs font-medium rounded-full">Clinical Study</span>
                 </div>
               </div>
             </div>
 
-            <!-- Publication 3 -->
-            <div class="card hover:shadow-xl transition-shadow duration-300 group">
-              <div class="flex flex-col lg:flex-row lg:items-start gap-4">
-                <div class="flex-shrink-0">
-                  <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center text-white font-bold">
-                    3
+            <!-- Journal Publication 5 - 2020 -->
+            <div class="publication-card card hover:shadow-xl transition-all duration-300 group">
+              <div class="flex flex-col gap-4">
+                <div class="flex items-start gap-4">
+                  <div class="flex-shrink-0">
+                    <div class="w-10 h-10 bg-gradient-to-br from-purple-600 to-purple-700 rounded-lg flex items-center justify-center">
+                      <span class="text-white font-bold text-sm">2020</span>
+                    </div>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors leading-tight">
+                      A new strategy for craniospinal axis localization and adaptive dosimetric verification using cone beam CT
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm mb-2">
+                      <span class="font-medium">Authors:</span> Mohamathu Rafic, 
+                      <span class="font-semibold text-purple-600 dark:text-purple-400">Sujith Christopher</span>, 
+                      Rajesh Balakrishnan, Ebenezer Suman Babu, Timothy Peace Balasingh Santosh
+                    </p>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-3">
+                      <span class="font-medium">Journal:</span> Reports of Practical Oncology & Radiotherapy, 25(2), 282–292
+                    </p>
                   </div>
                 </div>
-                <div class="flex-1">
-                  <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">
-                    A new strategy for craniospinal axis localization and adaptive dosimetric verification using cone beam CT
-                  </h3>
-                  <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">
-                    <span class="font-medium">Authors:</span> Mohamathu Rafic, 
-                    <span class="font-semibold text-green-600 dark:text-green-400">Sujith Christopher</span>, 
-                    Rajesh Balakrishnan, Ebenezer Suman Babu, Timothy Peace Balasingh Santosh
-                  </p>
-                  <p class="text-gray-500 dark:text-gray-400 text-sm mb-3">
-                    <span class="font-medium">Journal:</span> Reports of Practical Oncology & Radiotherapy, 25(2), 282–292
-                  </p>
-                  <div class="flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs font-medium rounded-full">Oncology</span>
+                <div class="flex flex-wrap gap-2 ml-14">
+                  <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-xs font-medium rounded-full">Oncology</span>
+                  <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs font-medium rounded-full">Medical Imaging</span>
+                  <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs font-medium rounded-full">CBCT</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Journal Publication 4 - 2019 -->
+            <div class="publication-card card hover:shadow-xl transition-all duration-300 group">
+              <div class="flex flex-col gap-4">
+                <div class="flex items-start gap-4">
+                  <div class="flex-shrink-0">
+                    <div class="w-10 h-10 bg-gradient-to-br from-green-600 to-green-700 rounded-lg flex items-center justify-center">
+                      <span class="text-white font-bold text-sm">2019</span>
+                    </div>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors leading-tight">
+                      Escalation of optical transmittance and determination of diffusion co-efficient in low-bloom strength gelatin-based Fricke gel dosimeters
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm mb-2">
+                      <span class="font-medium">Authors:</span> Ebenezer Suman Babu, Timothy Peace Balasingh Santosh, Winfred MR, Rafic KM, 
+                      <span class="font-semibold text-green-600 dark:text-green-400">Sujith Christopher</span>, Ravindran BP
+                    </p>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-3">
+                      <span class="font-medium">Journal:</span> Radiation Physics and Chemistry, 156, 300–306
+                    </p>
+                  </div>
+                </div>
+                <div class="flex flex-wrap gap-2 ml-14">
+                  <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs font-medium rounded-full">Dosimetry</span>
+                  <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs font-medium rounded-full">Gel Dosimeters</span>
+                  <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-xs font-medium rounded-full">Physics</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hidden publications initially -->
+            <div id="hidden-journals" class="hidden space-y-4">
+              <!-- Journal Publication 3 -->
+              <div class="publication-card card hover:shadow-xl transition-all duration-300 group">
+                <div class="flex flex-col gap-4">
+                  <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0">
+                      <div class="w-10 h-10 bg-gradient-to-br from-orange-600 to-orange-700 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">2019</span>
+                      </div>
+                    </div>
+                    <div class="flex-1">
+                      <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors leading-tight">
+                        A new strategy to determine off-axis dosimetric leaf gap using optically stimulated luminescence dosimeters and an electronic portal imaging device
+                      </h3>
+                      <p class="text-gray-600 dark:text-gray-300 text-sm mb-2">
+                        <span class="font-medium">Authors:</span> Divyalakshmi, Timothy Peace Balasingh Santosh, KM Rafic, Amalan Sebastin, Jose Solomon, 
+                        <span class="font-semibold text-orange-600 dark:text-orange-400">Sujith Christopher</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap gap-2 ml-14">
+                    <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300 text-xs font-medium rounded-full">Dosimetry</span>
                     <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs font-medium rounded-full">Medical Imaging</span>
+                    <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs font-medium rounded-full">EPID</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Journal Publication 2 -->
+              <div class="publication-card card hover:shadow-xl transition-all duration-300 group">
+                <div class="flex flex-col gap-4">
+                  <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0">
+                      <div class="w-10 h-10 bg-gradient-to-br from-teal-600 to-teal-700 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">2018</span>
+                      </div>
+                    </div>
+                    <div class="flex-1">
+                      <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors leading-tight">
+                        Planar and Volumetric Imaging Dosimetry for Longitudinal Projection Extended Cone Beam CT based Adaptive Radiotherapy
+                      </h3>
+                      <p class="text-gray-600 dark:text-gray-300 text-sm mb-2">
+                        <span class="font-medium">Authors:</span> K Mohamathu Rafic, Ebenezer Suman Babu, S Timothy Peace Balasingh, 
+                        <span class="font-semibold text-teal-600 dark:text-teal-400">Sujith Christopher J</span>, Abel Juhan Thomas, B Paul Ravindran
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap gap-2 ml-14">
+                    <span class="px-3 py-1 bg-teal-100 dark:bg-teal-900/30 text-teal-800 dark:text-teal-300 text-xs font-medium rounded-full">Medical Physics</span>
+                    <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-xs font-medium rounded-full">Adaptive Radiotherapy</span>
+                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs font-medium rounded-full">CBCT</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Journal Publication 1 -->
+              <div class="publication-card card hover:shadow-xl transition-all duration-300 group">
+                <div class="flex flex-col gap-4">
+                  <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0">
+                      <div class="w-10 h-10 bg-gradient-to-br from-indigo-600 to-indigo-700 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">2018</span>
+                      </div>
+                    </div>
+                    <div class="flex-1">
+                      <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors leading-tight">
+                        A survey on intelligence based biometric techniques for authentication applications
+                      </h3>
+                      <p class="text-gray-600 dark:text-gray-300 text-sm mb-2">
+                        <span class="font-medium">Authors:</span> Martin Sagayam, Felix Jacob, 
+                        <span class="font-semibold text-indigo-600 dark:text-indigo-400">Sujith Christopher</span>, Santhosh A Immanuel, Vamsidhar Reddy
+                      </p>
+                      <p class="text-gray-500 dark:text-gray-400 text-sm mb-3">
+                        <span class="font-medium">Publication:</span> Lecture Notes in Computational Vision and Biomechanics (Vol. 25)
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap gap-2 ml-14">
+                    <span class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-300 text-xs font-medium rounded-full">Biometrics</span>
+                    <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs font-medium rounded-full">Authentication</span>
+                    <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-xs font-medium rounded-full">Survey</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Additional publications can be added here following the same pattern -->
+            <!-- Show More Button for Journals -->
+            <div class="text-center mt-8">
+              <button 
+                id="toggle-journals-btn" 
+                class="btn-secondary hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors duration-300"
+              >
+                <span id="journals-btn-text">Show More Publications</span>
+                <svg id="journals-chevron" class="w-4 h-4 ml-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -128,46 +244,238 @@ import '../styles/global.css';
     <section class="section-padding bg-gray-50 dark:bg-gray-800/50">
       <div class="container-custom">
         <div class="max-w-6xl mx-auto">
-          <div class="flex items-center mb-12">
-            <div class="p-3 bg-purple-100 dark:bg-purple-900/30 rounded-lg mr-4">
-              <svg class="w-8 h-8 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9m0 0V4a2 2 0 011-1h4a2 2 0 011 1v3M9 7h6m6 0a2 2 0 012 2v9a2 2 0 01-2 2h-6a2 2 0 01-2-2V9a2 2 0 012-2h6z"></path>
-              </svg>
+          <div class="flex items-center justify-between mb-8">
+            <div class="flex items-center">
+              <div class="p-3 bg-purple-100 dark:bg-purple-900/30 rounded-lg mr-4">
+                <svg class="w-8 h-8 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9m0 0V4a2 2 0 011-1h4a2 2 0 011 1v3M9 7h6m6 0a2 2 0 012 2v9a2 2 0 01-2 2h-6a2 2 0 01-2-2V9a2 2 0 012-2h6z"></path>
+                </svg>
+              </div>
+              <h2 class="text-3xl md:text-4xl font-bold font-display text-gray-900 dark:text-white">
+                Conference Publications & Awards
+                <span class="text-lg font-normal text-gray-500 dark:text-gray-400 ml-2">(7)</span>
+              </h2>
             </div>
-            <h2 class="text-3xl md:text-4xl font-bold font-display text-gray-900 dark:text-white">
-              Conference Publications & Awards
-            </h2>
           </div>
           
-          <div class="space-y-6">
-            <!-- Conference 1 - Award Winner -->
-            <div class="card hover:shadow-xl transition-shadow duration-300 group border-l-4 border-yellow-500">
-              <div class="flex items-start gap-4">
-                <div class="flex-shrink-0">
-                  <div class="w-12 h-12 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-lg flex items-center justify-center">
-                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M5 16L3 5l5.5 3L12 5l3.5 3L21 5l-2 11H5zm2.7-2h8.6l.9-5.4-2.1 1.2L12 8l-3.1 1.8-2.1-1.2L7.7 14z"/>
-                    </svg>
+          <div id="conference-publications" class="space-y-4">
+            <!-- Conference Publication 7 - 2022 - Best Paper Award -->
+            <div class="publication-card card hover:shadow-xl transition-all duration-300 group border-l-4 border-orange-500">
+              <div class="flex flex-col gap-4">
+                <div class="flex items-start gap-4">
+                  <div class="flex-shrink-0">
+                    <div class="w-10 h-10 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center">
+                      <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M5 16L3 5l5.5 3L12 5l3.5 3L21 5l-2 11H5zm2.7-2h8.6l.9-5.4-2.1 1.2L12 8l-3.1 1.8-2.1-1.2L7.7 14z"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="flex-1">
+                    <div class="flex items-center gap-2 mb-2">
+                      <span class="px-2 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300 text-xs font-bold rounded">
+                        🏆 BEST PAPER AWARD - 2022
+                      </span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors leading-tight">
+                      Design and Development Of 3D Printed Paediatric Phantom for Evaluating the Accuracy of Deformable Image Registration Technique and Patient Specific QA
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm mb-2">
+                      <span class="font-medium">Authors:</span> 
+                      <span class="font-semibold text-orange-600 dark:text-orange-400">Sujith Christopher</span>, Timothy Peace Balasingh Santosh, Rafiq KM, Kavin
+                    </p>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-3">
+                      <span class="font-medium">Award:</span> Prof. T. N. B. NEDUNGADI BEST PAPER AWARD, TN & PY AMPICON 2022
+                    </p>
                   </div>
                 </div>
-                <div class="flex-1">
-                  <div class="flex items-center gap-2 mb-2">
-                    <span class="px-2 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 text-xs font-bold rounded">
-                      🏆 FIRST PRIZE
-                    </span>
+                <div class="flex flex-wrap gap-2 ml-14">
+                  <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300 text-xs font-medium rounded-full">Best Paper Award</span>
+                  <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs font-medium rounded-full">3D Printing</span>
+                  <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs font-medium rounded-full">Medical Imaging</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Conference Publication 6 - 2022 -->
+            <div class="publication-card card hover:shadow-xl transition-all duration-300 group">
+              <div class="flex flex-col gap-4">
+                <div class="flex items-start gap-4">
+                  <div class="flex-shrink-0">
+                    <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center">
+                      <span class="text-white font-bold text-sm">2022</span>
+                    </div>
                   </div>
-                  <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                    Wireless robotic phantom for quality assurance of 4D gated radiation therapy
-                  </h3>
-                  <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">
-                    <span class="font-medium">Authors:</span> 
-                    <span class="font-semibold text-yellow-600 dark:text-yellow-400">Sujith Christopher</span>, Paul Ravindran
-                  </p>
-                  <p class="text-gray-500 dark:text-gray-400 text-sm mb-3">
-                    <span class="font-medium">Conference:</span> 9th Annual Research Day, Christian Medical College - First prize in Bioengineering category
-                  </p>
-                  <div class="flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 text-xs font-medium rounded-full">Award Winner</span>
+                  <div class="flex-1">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-tight">
+                      Gamified upper limb therapy using an instrumented arm skateboard (ArmBo) and the YOLO framework
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm mb-2">
+                      <span class="font-medium">Authors:</span> 
+                      <span class="font-semibold text-blue-600 dark:text-blue-400">Sujith Christopher J</span>, Samuel Elias, Prem Kumar, Sivakumar Balasubramanian
+                    </p>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-3">
+                      <span class="font-medium">Conference:</span> Annual research day 2022, CMC Vellore (Poster)
+                    </p>
+                  </div>
+                </div>
+                <div class="flex flex-wrap gap-2 ml-14">
+                  <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs font-medium rounded-full">Gamification</span>
+                  <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs font-medium rounded-full">Rehabilitation</span>
+                  <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-xs font-medium rounded-full">YOLO</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Conference Publication 5 - 2022 -->
+            <div class="publication-card card hover:shadow-xl transition-all duration-300 group">
+              <div class="flex flex-col gap-4">
+                <div class="flex items-start gap-4">
+                  <div class="flex-shrink-0">
+                    <div class="w-10 h-10 bg-gradient-to-br from-purple-600 to-purple-700 rounded-lg flex items-center justify-center">
+                      <span class="text-white font-bold text-sm">2022</span>
+                    </div>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors leading-tight">
+                      Realtime feedback using an instrumented arm skateboard for upper-limb rehabilitation
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm mb-2">
+                      <span class="font-medium">Authors:</span> 
+                      <span class="font-semibold text-purple-600 dark:text-purple-400">Sujith Christopher J</span>, Sivakumar Balasubramanian
+                    </p>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-3">
+                      <span class="font-medium">Conference:</span> Annual research day 2022, CMC Vellore (Poster)
+                    </p>
+                  </div>
+                </div>
+                <div class="flex flex-wrap gap-2 ml-14">
+                  <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-xs font-medium rounded-full">Real-time Feedback</span>
+                  <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs font-medium rounded-full">Upper-limb Rehab</span>
+                  <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs font-medium rounded-full">Instrumentation</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hidden conference publications initially -->
+            <div id="hidden-conferences" class="hidden space-y-4">
+              <!-- Conference Publication 4 - 2022 -->
+              <div class="publication-card card hover:shadow-xl transition-all duration-300 group">
+                <div class="flex flex-col gap-4">
+                  <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0">
+                      <div class="w-10 h-10 bg-gradient-to-br from-green-600 to-green-700 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">2022</span>
+                      </div>
+                    </div>
+                    <div class="flex-1">
+                      <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors leading-tight">
+                        Investigation on sensor fusion-based feedback in arm-skateboard for upper-limb rehabilitation
+                      </h3>
+                      <p class="text-gray-600 dark:text-gray-300 text-sm mb-2">
+                        <span class="font-medium">Authors:</span> 
+                        <span class="font-semibold text-green-600 dark:text-green-400">Sujith Christopher J</span>, Sivakumar Balasubramanian
+                      </p>
+                      <p class="text-gray-500 dark:text-gray-400 text-sm mb-3">
+                        <span class="font-medium">Conference:</span> Empower 2022, IIT-M (Poster)
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap gap-2 ml-14">
+                    <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs font-medium rounded-full">Sensor Fusion</span>
+                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs font-medium rounded-full">Rehabilitation</span>
+                    <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-xs font-medium rounded-full">Feedback Systems</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Conference Publication 3 - 2020 -->
+              <div class="publication-card card hover:shadow-xl transition-all duration-300 group">
+                <div class="flex flex-col gap-4">
+                  <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0">
+                      <div class="w-10 h-10 bg-gradient-to-br from-teal-600 to-teal-700 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">2020</span>
+                      </div>
+                    </div>
+                    <div class="flex-1">
+                      <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors leading-tight">
+                        Dynamic HU mapping and deformable image registration algorithm for adaptive treatment planning and dose calculation using neural network
+                      </h3>
+                      <p class="text-gray-600 dark:text-gray-300 text-sm mb-2">
+                        <span class="font-medium">Authors:</span> 
+                        <span class="font-semibold text-teal-600 dark:text-teal-400">Sujith Christopher J</span>, Timothy Peace Balasingh Santosh, Rafic KM, Paul Ravindran
+                      </p>
+                      <p class="text-gray-500 dark:text-gray-400 text-sm mb-3">
+                        <span class="font-medium">Conference:</span> Joint AAPM/COMP virtual meeting, 2020 (E-Poster)
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap gap-2 ml-14">
+                    <span class="px-3 py-1 bg-teal-100 dark:bg-teal-900/30 text-teal-800 dark:text-teal-300 text-xs font-medium rounded-full">Neural Networks</span>
+                    <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-xs font-medium rounded-full">Image Registration</span>
+                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs font-medium rounded-full">Treatment Planning</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Conference Publication 2 -->
+              <div class="publication-card card hover:shadow-xl transition-all duration-300 group">
+                <div class="flex flex-col gap-4">
+                  <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0">
+                      <div class="w-10 h-10 bg-gradient-to-br from-indigo-600 to-indigo-700 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">2019</span>
+                      </div>
+                    </div>
+                    <div class="flex-1">
+                      <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors leading-tight">
+                        Respiratory phantom for patient specific quality assurance of 4D gated radiation therapy
+                      </h3>
+                      <p class="text-gray-600 dark:text-gray-300 text-sm mb-2">
+                        <span class="font-medium">Authors:</span> 
+                        <span class="font-semibold text-indigo-600 dark:text-indigo-400">Sujith Christopher</span>, Timothy Peace Balasingh Santosh, Paul Ravindran
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap gap-2 ml-14">
+                    <span class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-300 text-xs font-medium rounded-full">Quality Assurance</span>
+                    <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs font-medium rounded-full">4D Gating</span>
+                    <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-xs font-medium rounded-full">Phantom</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Conference Publication 1 - First Prize -->
+              <div class="publication-card card hover:shadow-xl transition-all duration-300 group border-l-4 border-yellow-500">
+                <div class="flex flex-col gap-4">
+                  <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0">
+                      <div class="w-10 h-10 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-lg flex items-center justify-center">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M5 16L3 5l5.5 3L12 5l3.5 3L21 5l-2 11H5zm2.7-2h8.6l.9-5.4-2.1 1.2L12 8l-3.1 1.8-2.1-1.2L7.7 14z"/>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="flex-1">
+                      <div class="flex items-center gap-2 mb-2">
+                        <span class="px-2 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 text-xs font-bold rounded">
+                          🏆 FIRST PRIZE
+                        </span>
+                      </div>
+                      <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-yellow-600 dark:group-hover:text-yellow-400 transition-colors leading-tight">
+                        Wireless robotic phantom for quality assurance of 4D gated radiation therapy
+                      </h3>
+                      <p class="text-gray-600 dark:text-gray-300 text-sm mb-2">
+                        <span class="font-medium">Authors:</span> 
+                        <span class="font-semibold text-yellow-600 dark:text-yellow-400">Sujith Christopher</span>, Paul Ravindran
+                      </p>
+                      <p class="text-gray-500 dark:text-gray-400 text-sm mb-3">
+                        <span class="font-medium">Conference:</span> 9th Annual Research Day, Christian Medical College - First prize in Bioengineering category
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap gap-2 ml-14">
+                    <span class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 text-xs font-medium rounded-full">First Prize</span>
                     <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs font-medium rounded-full">Robotics</span>
                     <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-xs font-medium rounded-full">Quality Assurance</span>
                   </div>
@@ -175,66 +483,17 @@ import '../styles/global.css';
               </div>
             </div>
 
-            <!-- Conference 2 - Best Paper Award -->
-            <div class="card hover:shadow-xl transition-shadow duration-300 group border-l-4 border-orange-500">
-              <div class="flex items-start gap-4">
-                <div class="flex-shrink-0">
-                  <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center">
-                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M5 16L3 5l5.5 3L12 5l3.5 3L21 5l-2 11H5zm2.7-2h8.6l.9-5.4-2.1 1.2L12 8l-3.1 1.8-2.1-1.2L7.7 14z"/>
-                    </svg>
-                  </div>
-                </div>
-                <div class="flex-1">
-                  <div class="flex items-center gap-2 mb-2">
-                    <span class="px-2 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300 text-xs font-bold rounded">
-                      🏆 BEST PAPER AWARD
-                    </span>
-                  </div>
-                  <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                    Design and Development Of 3D Printed Paediatric Phantom for Evaluating the Accuracy of Deformable Image Registration Technique and Patient Specific QA
-                  </h3>
-                  <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">
-                    <span class="font-medium">Authors:</span> 
-                    <span class="font-semibold text-orange-600 dark:text-orange-400">Sujith Christopher</span>, Timothy Peace Balasingh Santosh, Rafiq KM, Kavin
-                  </p>
-                  <p class="text-gray-500 dark:text-gray-400 text-sm mb-3">
-                    <span class="font-medium">Award:</span> Prof. T. N. B. NEDUNGADI BEST PAPER AWARD, TN & PY AMPICON 2022
-                  </p>
-                  <div class="flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300 text-xs font-medium rounded-full">Best Paper</span>
-                    <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs font-medium rounded-full">3D Printing</span>
-                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs font-medium rounded-full">Medical Imaging</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Additional conference presentations -->
-            <div class="card hover:shadow-xl transition-shadow duration-300 group">
-              <div class="flex items-start gap-4">
-                <div class="flex-shrink-0">
-                  <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center text-white font-bold">
-                    C1
-                  </div>
-                </div>
-                <div class="flex-1">
-                  <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                    Dynamic HU mapping and deformable image registration algorithm for adaptive treatment planning and dose calculation using neural network
-                  </h3>
-                  <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">
-                    <span class="font-medium">Authors:</span> 
-                    <span class="font-semibold text-blue-600 dark:text-blue-400">Sujith Christopher J</span>, Timothy Peace Balasingh Santosh, Rafic KM, Paul Ravindran
-                  </p>
-                  <p class="text-gray-500 dark:text-gray-400 text-sm mb-3">
-                    <span class="font-medium">Conference:</span> Joint AAPM/COMP virtual meeting, 2020 (E-Poster)
-                  </p>
-                  <div class="flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs font-medium rounded-full">Neural Networks</span>
-                    <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-xs font-medium rounded-full">Image Registration</span>
-                  </div>
-                </div>
-              </div>
+            <!-- Show More Button for Conferences -->
+            <div class="text-center mt-8">
+              <button 
+                id="toggle-conferences-btn" 
+                class="btn-secondary hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors duration-300"
+              >
+                <span id="conferences-btn-text">Show More Publications</span>
+                <svg id="conferences-chevron" class="w-4 h-4 ml-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
             </div>
           </div>
         </div>
@@ -287,3 +546,64 @@ import '../styles/global.css';
   
   <Footer />
 </Layout>
+
+<script>
+  // Toggle functionality for journal publications
+  const toggleJournalsBtn = document.getElementById('toggle-journals-btn');
+  const hiddenJournals = document.getElementById('hidden-journals');
+  const journalsBtnText = document.getElementById('journals-btn-text');
+  const journalsChevron = document.getElementById('journals-chevron');
+  
+  let journalsExpanded = false;
+
+  toggleJournalsBtn?.addEventListener('click', () => {
+    if (journalsExpanded) {
+      hiddenJournals?.classList.add('hidden');
+      journalsBtnText!.textContent = 'Show More Publications';
+      journalsChevron?.classList.remove('rotate-180');
+    } else {
+      hiddenJournals?.classList.remove('hidden');
+      journalsBtnText!.textContent = 'Show Less Publications';
+      journalsChevron?.classList.add('rotate-180');
+    }
+    journalsExpanded = !journalsExpanded;
+  });
+
+  // Toggle functionality for conference publications
+  const toggleConferencesBtn = document.getElementById('toggle-conferences-btn');
+  const hiddenConferences = document.getElementById('hidden-conferences');
+  const conferencesBtnText = document.getElementById('conferences-btn-text');
+  const conferencesChevron = document.getElementById('conferences-chevron');
+  
+  let conferencesExpanded = false;
+
+  toggleConferencesBtn?.addEventListener('click', () => {
+    if (conferencesExpanded) {
+      hiddenConferences?.classList.add('hidden');
+      conferencesBtnText!.textContent = 'Show More Publications';
+      conferencesChevron?.classList.remove('rotate-180');
+    } else {
+      hiddenConferences?.classList.remove('hidden');
+      conferencesBtnText!.textContent = 'Show Less Publications';
+      conferencesChevron?.classList.add('rotate-180');
+    }
+    conferencesExpanded = !conferencesExpanded;
+  });
+
+  // Add smooth animation for publication cards
+  document.addEventListener('DOMContentLoaded', () => {
+    const publicationCards = document.querySelectorAll('.publication-card');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-slide-up');
+        }
+      });
+    });
+
+    publicationCards.forEach((card) => {
+      observer.observe(card);
+    });
+  });
+</script>
