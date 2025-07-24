@@ -25,7 +25,10 @@ src/
 ├── pages/          # Route pages
 │   ├── index.astro      # About/Homepage
 │   ├── research.astro   # Research & Publications
-│   └── news.astro       # News & Updates
+│   ├── news.astro       # News & Updates
+│   ├── blog.astro       # Blog listing page
+│   └── blog/           # Individual blog posts
+│       └── 1.astro     # GdSerial blog post
 └── styles/         # Global styles
     └── global.css
 public/             # Static assets
@@ -46,6 +49,7 @@ npm run preview      # Preview production build
 - **About Page**: Edit `src/pages/index.astro` for bio, education, and experience
 - **Research**: Edit `src/pages/research.astro` for publications and research areas
 - **News**: Edit `src/pages/news.astro` for timeline updates and achievements
+- **Blog**: Edit `src/pages/blog.astro` for blog listing, create new posts in `src/pages/blog/`
 - **Styling**: Modify `src/styles/global.css` or use Tailwind classes
 
 ### Component Structure
@@ -89,6 +93,11 @@ npm run build        # Build the site
 1. Edit `src/pages/news.astro`
 2. Add new timeline item with proper date formatting
 3. Include media embeds if needed (YouTube, etc.)
+
+### Adding Blog Posts
+1. Create new file in `src/pages/blog/` (e.g., `2.astro` for post ID 2)
+2. Update the `blogPosts` array in `src/pages/blog.astro` with post metadata
+3. Follow the existing structure and styling patterns
 
 ### Styling Updates
 - Use Tailwind utilities for quick styling

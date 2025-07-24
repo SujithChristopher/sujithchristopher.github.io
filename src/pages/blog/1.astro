@@ -1,0 +1,527 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import '../../styles/global.css';
+---
+
+<Layout title="GdSerial: Bringing PySerial-like Functionality to Godot 4 - Sujith Christopher">
+  <Header />
+  
+  <main class="pt-16">
+    <!-- Article Header -->
+    <section class="section-padding bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800">
+      <div class="container-custom">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-8">
+            <div class="flex items-center justify-center gap-4 mb-6">
+              <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-sm font-medium rounded-full">
+                Open Source
+              </span>
+              <span class="text-gray-500 dark:text-gray-400">•</span>
+              <span class="text-gray-600 dark:text-gray-300">July 24, 2024</span>
+              <span class="text-gray-500 dark:text-gray-400">•</span>
+              <span class="text-gray-600 dark:text-gray-300">8 min read</span>
+            </div>
+            
+            <h1 class="text-4xl md:text-5xl font-bold font-display text-gray-900 dark:text-white mb-6 leading-tight">
+              GdSerial: Bringing PySerial-like Functionality to Godot 4
+            </h1>
+            
+            <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
+              A comprehensive guide to using GdSerial, a Rust-based serial communication library that enables 
+              seamless Arduino and sensor integration in Godot applications.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a 
+                href="https://github.com/SujithChristopher/gdserial" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="btn-primary flex items-center gap-2"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                View on GitHub
+              </a>
+              <a 
+                href="/"
+                class="btn-secondary"
+              >
+                ← Back to Blog
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Article Content -->
+    <article class="section-padding">
+      <div class="container-custom">
+        <div class="max-w-4xl mx-auto">
+          <div class="prose prose-lg dark:prose-invert max-w-none">
+            
+            <!-- Introduction -->
+            <div class="mb-12">
+              <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Introduction</h2>
+              <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+                When working on interactive applications that need to communicate with hardware devices like Arduino boards, 
+                sensors, or custom electronics, developers often face the challenge of integrating serial communication 
+                into their projects. While Python developers have the excellent PySerial library, Godot 4 developers 
+                have been lacking a comprehensive, easy-to-use solution.
+              </p>
+              <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                That's where <strong>GdSerial</strong> comes in – a Rust-based extension that brings PySerial-like 
+                functionality directly to Godot 4, enabling seamless serial communication for games, applications, 
+                and research tools.
+              </p>
+            </div>
+
+            <!-- Why GdSerial -->
+            <div class="mb-12">
+              <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Why GdSerial?</h2>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="card p-6">
+                  <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mr-3">
+                      <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                      </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Performance</h3>
+                  </div>
+                  <p class="text-gray-600 dark:text-gray-300 text-sm">
+                    Built with Rust for maximum performance and memory safety, providing native-speed serial communication.
+                  </p>
+                </div>
+
+                <div class="card p-6">
+                  <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center mr-3">
+                      <svg class="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                      </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Simplicity</h3>
+                  </div>
+                  <p class="text-gray-600 dark:text-gray-300 text-sm">
+                    PySerial-like API that's familiar and easy to use, with minimal setup required.
+                  </p>
+                </div>
+
+                <div class="card p-6">
+                  <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mr-3">
+                      <svg class="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"></path>
+                      </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Cross-Platform</h3>
+                  </div>
+                  <p class="text-gray-600 dark:text-gray-300 text-sm">
+                    Works seamlessly across Windows, Linux, and macOS with platform-specific optimizations.
+                  </p>
+                </div>
+
+                <div class="card p-6">
+                  <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center mr-3">
+                      <svg class="w-6 h-6 text-orange-600 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                      </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Godot Native</h3>
+                  </div>
+                  <p class="text-gray-600 dark:text-gray-300 text-sm">
+                    Integrates seamlessly with Godot's type system and error handling mechanisms.
+                  </p>
+                </div>
+              </div>
+
+              <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                In my research work, I frequently need to interface with custom hardware, sensors, and measurement devices. 
+                Traditional solutions either required complex C++ integrations or external Python scripts. GdSerial eliminates 
+                this complexity by providing a native Godot solution that's both powerful and easy to use.
+              </p>
+            </div>
+
+            <!-- Key Features -->
+            <div class="mb-12">
+              <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Key Features</h2>
+              
+              <div class="space-y-6">
+                <div class="flex items-start gap-4">
+                  <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <span class="text-white font-bold text-sm">1</span>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Port Discovery & Management</h3>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                      Automatically discover available serial ports on your system, with detailed information 
+                      about each port including hardware descriptions and connection status.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                  <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <span class="text-white font-bold text-sm">2</span>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Flexible Communication</h3>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                      Support for both text-based and binary communication protocols, with built-in line 
+                      reading/writing capabilities and customizable delimiters.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                  <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <span class="text-white font-bold text-sm">3</span>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Advanced Configuration</h3>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                      Full control over serial parameters including baud rate, timeout settings, data bits, 
+                      stop bits, and parity configuration.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                  <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <span class="text-white font-bold text-sm">4</span>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Error Handling</h3>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                      Comprehensive error handling with meaningful error messages, integrated with Godot's 
+                      logging system for easy debugging.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Installation -->
+            <div class="mb-12">
+              <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Installation</h2>
+              
+              <div class="space-y-6">
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Option 1: Pre-built Release (Recommended)</h3>
+                  <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
+                    <ol class="list-decimal list-inside space-y-3 text-gray-700 dark:text-gray-300">
+                      <li>Download the latest release from the <a href="https://github.com/SujithChristopher/gdserial/releases" class="text-blue-600 dark:text-blue-400 hover:underline" target="_blank">GitHub releases page</a></li>
+                      <li>Extract the files to your Godot project's <code class="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded">addons/</code> directory</li>
+                      <li>Enable the plugin in your project settings</li>
+                      <li>You're ready to go!</li>
+                    </ol>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Option 2: Build from Source</h3>
+                  <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
+                    <p class="text-gray-700 dark:text-gray-300 mb-4">For developers who want to build from source or contribute:</p>
+                    <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+                      <pre class="text-green-400 text-sm"><code># Clone the repository
+git clone https://github.com/SujithChristopher/gdserial.git
+cd gdserial
+
+# Build the project (requires Rust and Godot 4.2+)
+cargo build --release
+
+# Copy the built library to your project</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Usage Examples -->
+            <div class="mb-12">
+              <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Usage Examples</h2>
+              
+              <div class="space-y-8">
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Basic Arduino Communication</h3>
+                  <p class="text-gray-700 dark:text-gray-300 mb-4">
+                    Here's a simple example of communicating with an Arduino board:
+                  </p>
+                  <div class="bg-gray-900 rounded-lg p-6 overflow-x-auto">
+                    <pre class="text-green-400 text-sm"><code>extends Node
+
+var serial: GdSerial
+
+func _ready():
+    # Create a new serial instance
+    serial = GdSerial.new()
+    
+    # Configure the connection
+    serial.set_port("COM3")  # Windows: COM3, Linux: /dev/ttyACM0, Mac: /dev/cu.usbmodem*
+    serial.set_baud_rate(115200)
+    serial.set_timeout(1000)  # 1 second timeout
+    
+    # Open the connection
+    if serial.open():
+        print("Successfully connected to Arduino!")
+        
+        # Send a command
+        serial.writeline("GET_SENSOR_DATA")
+        
+        # Read the response
+        var response = serial.readline()
+        print("Arduino response: ", response)
+        
+        # Close when done
+        serial.close()
+    else:
+        print("Failed to connect to Arduino")</code></pre>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Port Discovery</h3>
+                  <p class="text-gray-700 dark:text-gray-300 mb-4">
+                    Automatically find available serial ports:
+                  </p>
+                  <div class="bg-gray-900 rounded-lg p-6 overflow-x-auto">
+                    <pre class="text-green-400 text-sm"><code>extends Node
+
+func discover_ports():
+    var serial = GdSerial.new()
+    var available_ports = serial.list_ports()
+    
+    print("Available serial ports:")
+    for port in available_ports:
+        print("- Port: ", port.name)
+        print("  Description: ", port.description)
+        print("  Hardware ID: ", port.hardware_id)</code></pre>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Binary Data Handling</h3>
+                  <p class="text-gray-700 dark:text-gray-300 mb-4">
+                    For applications requiring binary protocol communication:
+                  </p>
+                  <div class="bg-gray-900 rounded-lg p-6 overflow-x-auto">
+                    <pre class="text-green-400 text-sm"><code>extends Node
+
+func handle_binary_data():
+    var serial = GdSerial.new()
+    serial.set_port("/dev/ttyUSB0")
+    serial.set_baud_rate(9600)
+    
+    if serial.open():
+        # Send binary command (e.g., sensor calibration)
+        var command = PackedByteArray([0xFF, 0x01, 0x86, 0x00, 0x00, 0x00, 0x00, 0x00, 0x79])
+        serial.write_bytes(command)
+        
+        # Read binary response
+        var response = serial.read_bytes(9)  # Expecting 9 bytes
+        if response.size() == 9:
+            var co2_value = (response[2] << 8) | response[3]
+            print("CO2 Level: ", co2_value, " ppm")
+        
+        serial.close()</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Real-world Applications -->
+            <div class="mb-12">
+              <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Real-world Applications</h2>
+              
+              <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+                In my research and development work, I've used GdSerial for various applications:
+              </p>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="card p-6 border-l-4 border-blue-500">
+                  <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Medical Device Integration</h3>
+                  <p class="text-gray-600 dark:text-gray-300 text-sm">
+                    Interfacing with custom measurement devices and sensors for bioengineering research, 
+                    enabling real-time data collection and analysis.
+                  </p>
+                </div>
+
+                <div class="card p-6 border-l-4 border-green-500">
+                  <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Rehabilitation Systems</h3>
+                  <p class="text-gray-600 dark:text-gray-300 text-sm">
+                    Communication with Arduino-based rehabilitation devices for upper-limb therapy, 
+                    providing real-time feedback and gamification elements.
+                  </p>
+                </div>
+
+                <div class="card p-6 border-l-4 border-purple-500">
+                  <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Laboratory Automation</h3>
+                  <p class="text-gray-600 dark:text-gray-300 text-sm">
+                    Controlling and monitoring laboratory equipment through custom Godot interfaces, 
+                    streamlining research workflows.
+                  </p>
+                </div>
+
+                <div class="card p-6 border-l-4 border-orange-500">
+                  <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Educational Tools</h3>
+                  <p class="text-gray-600 dark:text-gray-300 text-sm">
+                    Creating interactive educational applications that demonstrate engineering concepts 
+                    through hardware integration.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Technical Details -->
+            <div class="mb-12">
+              <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Technical Implementation</h2>
+              
+              <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+                GdSerial is built using modern Rust with the <code class="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded">tokio-serial</code> 
+                crate for cross-platform serial communication and Godot's GDExtension system for seamless integration.
+              </p>
+
+              <div class="space-y-6">
+                <div>
+                  <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Architecture Highlights</h3>
+                  <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 ml-4">
+                    <li><strong>Memory Safety:</strong> Rust's ownership system prevents common bugs like buffer overflows</li>
+                    <li><strong>Async Operations:</strong> Non-blocking I/O operations that don't freeze your Godot application</li>
+                    <li><strong>Cross-platform Compatibility:</strong> Single codebase works across Windows, Linux, and macOS</li>
+                    <li><strong>Godot Integration:</strong> Native Godot types and error handling throughout</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Performance Considerations</h3>
+                  <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    The library is designed for both high-throughput data acquisition and low-latency control applications. 
+                    Benchmark tests show consistent performance even with multiple concurrent serial connections, 
+                    making it suitable for complex multi-device setups.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contributing -->
+            <div class="mb-12">
+              <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Contributing & Future Plans</h2>
+              
+              <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+                GdSerial is an open-source project, and contributions are welcome! Whether you're fixing bugs, 
+                adding features, or improving documentation, your input helps make the library better for everyone.
+              </p>
+
+              <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6">
+                <h3 class="text-lg font-semibold text-blue-900 dark:text-blue-300 mb-3">Upcoming Features</h3>
+                <ul class="list-disc list-inside space-y-2 text-blue-800 dark:text-blue-400">
+                  <li>WebSerial support for web-based Godot applications</li>
+                  <li>Built-in protocol handlers for common devices (Arduino, sensors)</li>
+                  <li>Advanced debugging and monitoring tools</li>
+                  <li>Performance optimizations and benchmarking suite</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="mb-12">
+              <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Conclusion</h2>
+              
+              <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+                GdSerial bridges the gap between Godot's powerful application development capabilities and the world 
+                of hardware interaction. By providing a familiar, PySerial-like API with the performance benefits 
+                of Rust, it enables developers to create sophisticated applications that seamlessly integrate with 
+                physical devices.
+              </p>
+
+              <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
+                Whether you're building research tools, educational applications, or interactive installations, 
+                GdSerial provides the foundation you need for reliable serial communication. The library continues 
+                to evolve based on real-world usage and community feedback, ensuring it meets the needs of diverse 
+                application domains.
+              </p>
+
+              <div class="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-8 text-center">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+                  Ready to Get Started?
+                </h3>
+                <p class="text-gray-700 dark:text-gray-300 mb-6">
+                  Download GdSerial today and start building hardware-integrated applications with Godot 4.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                  <a 
+                    href="https://github.com/SujithChristopher/gdserial" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="btn-primary"
+                  >
+                    Get GdSerial
+                  </a>
+                  <a 
+                    href="https://github.com/SujithChristopher/gdserial/issues" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="btn-secondary"
+                  >
+                    Report Issues
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-2 pt-8 border-t border-gray-200 dark:border-gray-700">
+              <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-sm rounded-full">Godot</span>
+              <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300 text-sm rounded-full">Rust</span>
+              <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-sm rounded-full">Serial Communication</span>
+              <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-sm rounded-full">Arduino</span>
+              <span class="px-3 py-1 bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-300 text-sm rounded-full">Open Source</span>
+              <span class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-300 text-sm rounded-full">Hardware Integration</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Navigation -->
+    <section class="py-12 bg-gray-50 dark:bg-gray-800/50">
+      <div class="container-custom">
+        <div class="max-w-4xl mx-auto">
+          <div class="flex flex-col sm:flex-row justify-between items-center gap-6">
+            <a 
+              href="/blog" 
+              class="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+              </svg>
+              Back to All Posts
+            </a>
+            
+            <div class="flex gap-4">
+              <a 
+                href="https://github.com/SujithChristopher/gdserial" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                title="View on GitHub"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>
