@@ -1,0 +1,212 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+---
+
+<Layout title="Sujith Christopher - Project Research Scientist">
+  <Header />
+  
+  <main class="pt-16">
+    <!-- Hero Section -->
+    <section class="section-padding bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800">
+      <div class="container-custom">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <!-- Profile Image -->
+          <div class="flex justify-center lg:justify-start order-1 lg:order-2">
+            <div class="relative group">
+              <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+              <img 
+                src="/Sujith.jpg" 
+                alt="Sujith Christopher" 
+                class="relative w-80 h-80 rounded-full object-cover shadow-xl ring-4 ring-white dark:ring-gray-800"
+              />
+            </div>
+          </div>
+          
+          <!-- Hero Content -->
+          <div class="text-center lg:text-left order-2 lg:order-1 animate-fade-in">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold font-display text-gray-900 dark:text-white mb-6">
+              Hi, I'm 
+              <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Sujith Christopher
+              </span>
+            </h1>
+            
+            <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+              Project Research Scientist at <strong>IIT Madras</strong>, specializing in bioengineering and neuro-rehabilitation technology.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <a href="/research" class="btn-primary">
+                View My Research
+              </a>
+              <a href="/news" class="btn-secondary">
+                Latest Updates
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section-padding">
+      <div class="container-custom">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-bold font-display text-center text-gray-900 dark:text-white mb-12">
+            About Me
+          </h2>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Education -->
+            <div class="card animate-slide-up">
+              <div class="flex items-center mb-4">
+                <div class="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
+                  <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+                  </svg>
+                </div>
+                <h3 class="text-xl font-bold font-display text-gray-900 dark:text-white ml-3">Education</h3>
+              </div>
+              
+              <div class="space-y-4">
+                <div class="border-l-4 border-blue-500 pl-4">
+                  <h4 class="font-semibold text-gray-900 dark:text-white">M.S. in Bioengineering</h4>
+                  <p class="text-gray-600 dark:text-gray-300 text-sm">2023 • Joint degree program</p>
+                  <p class="text-gray-600 dark:text-gray-300 text-sm">CMC Vellore & SCTIMST Trivandrum</p>
+                </div>
+                
+                <div class="border-l-4 border-purple-500 pl-4">
+                  <h4 class="font-semibold text-gray-900 dark:text-white">B.Tech in Electronics and Communication</h4>
+                  <p class="text-gray-600 dark:text-gray-300 text-sm">2017 • Karunya University, Coimbatore</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Current Position -->
+            <div class="card animate-slide-up">
+              <div class="flex items-center mb-4">
+                <div class="p-3 bg-purple-100 dark:bg-purple-900/30 rounded-lg">
+                  <svg class="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <h3 class="text-xl font-bold font-display text-gray-900 dark:text-white ml-3">Current Role</h3>
+              </div>
+              
+              <div class="border-l-4 border-green-500 pl-4">
+                <h4 class="font-semibold text-gray-900 dark:text-white">Project Research Scientist</h4>
+                <p class="text-gray-600 dark:text-gray-300 text-sm">Mar 2025 - Present</p>
+                <p class="text-gray-600 dark:text-gray-300 text-sm">Department of Mechanical Engineering</p>
+                <p class="text-gray-600 dark:text-gray-300 text-sm">IIT Madras</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section class="section-padding bg-gray-50 dark:bg-gray-800/50">
+      <div class="container-custom">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-bold font-display text-center text-gray-900 dark:text-white mb-12">
+            Professional Journey
+          </h2>
+          
+          <div class="relative">
+            <!-- Timeline line -->
+            <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-purple-500"></div>
+            
+            <div class="space-y-8">
+              <!-- Current Position -->
+              <div class="relative flex items-start">
+                <div class="absolute left-6 w-4 h-4 bg-green-500 rounded-full border-4 border-white dark:border-gray-800 shadow-lg"></div>
+                <div class="ml-16 card">
+                  <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Project Research Scientist</h3>
+                    <span class="text-green-600 dark:text-green-400 font-medium text-sm">Mar 2025 - Present</span>
+                  </div>
+                  <p class="text-gray-600 dark:text-gray-300 text-sm mb-1">Department of Mechanical Engineering, IIT Madras</p>
+                </div>
+              </div>
+              
+              <!-- Previous positions -->
+              <div class="relative flex items-start">
+                <div class="absolute left-6 w-4 h-4 bg-blue-500 rounded-full border-4 border-white dark:border-gray-800 shadow-lg"></div>
+                <div class="ml-16 card">
+                  <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Project Associate</h3>
+                    <span class="text-blue-600 dark:text-blue-400 font-medium text-sm">Oct 2023 - Feb 2025</span>
+                  </div>
+                  <p class="text-gray-600 dark:text-gray-300 text-sm">Department of Mechanical Engineering, IIT Madras</p>
+                </div>
+              </div>
+              
+              <div class="relative flex items-start">
+                <div class="absolute left-6 w-4 h-4 bg-purple-500 rounded-full border-4 border-white dark:border-gray-800 shadow-lg"></div>
+                <div class="ml-16 card">
+                  <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Postgraduate Trainee</h3>
+                    <span class="text-purple-600 dark:text-purple-400 font-medium text-sm">Oct 2021 - Oct 2023</span>
+                  </div>
+                  <p class="text-gray-600 dark:text-gray-300 text-sm">Department of Bioengineering, CMC Vellore</p>
+                </div>
+              </div>
+              
+              <!-- Additional positions can be added here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills/Research Areas -->
+    <section class="section-padding">
+      <div class="container-custom">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="text-3xl md:text-4xl font-bold font-display text-gray-900 dark:text-white mb-12">
+            Research Areas
+          </h2>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="card text-center group hover:scale-105 transition-transform duration-300">
+              <div class="p-4 bg-blue-100 dark:bg-blue-900/30 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center group-hover:bg-blue-200 dark:group-hover:bg-blue-900/50 transition-colors">
+                <svg class="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364-.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Bioengineering</h3>
+              <p class="text-gray-600 dark:text-gray-300 text-sm">Medical device development and biomedical imaging</p>
+            </div>
+            
+            <div class="card text-center group hover:scale-105 transition-transform duration-300">
+              <div class="p-4 bg-purple-100 dark:bg-purple-900/30 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center group-hover:bg-purple-200 dark:group-hover:bg-purple-900/50 transition-colors">
+                <svg class="w-8 h-8 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Neuro-Rehabilitation</h3>
+              <p class="text-gray-600 dark:text-gray-300 text-sm">Upper-limb rehabilitation and assistive technology</p>
+            </div>
+            
+            <div class="card text-center group hover:scale-105 transition-transform duration-300">
+              <div class="p-4 bg-green-100 dark:bg-green-900/30 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center group-hover:bg-green-200 dark:group-hover:bg-green-900/50 transition-colors">
+                <svg class="w-8 h-8 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Radiation Oncology</h3>
+              <p class="text-gray-600 dark:text-gray-300 text-sm">Medical physics and dosimetry research</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>

@@ -1,0 +1,279 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+---
+
+<Layout title="News & Updates - Sujith Christopher">
+  <Header />
+  
+  <main class="pt-16">
+    <!-- Hero Section -->
+    <section class="section-padding bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800">
+      <div class="container-custom">
+        <div class="text-center max-w-4xl mx-auto">
+          <h1 class="text-4xl md:text-5xl font-bold font-display text-gray-900 dark:text-white mb-6">
+            News & 
+            <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Updates
+            </span>
+          </h1>
+          <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
+            Stay updated with my latest achievements, research milestones, and professional journey
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="section-padding">
+      <div class="container-custom">
+        <div class="max-w-4xl mx-auto">
+          <!-- Timeline Container -->
+          <div class="relative">
+            <!-- Timeline Line -->
+            <div class="absolute left-8 md:left-1/2 md:transform md:-translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-green-500"></div>
+            
+            <div class="space-y-12">
+              <!-- News Item 1 - Feb 2024 -->
+              <div class="relative flex items-start md:justify-center">
+                <div class="absolute left-6 md:left-1/2 md:transform md:-translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-white dark:border-gray-900 shadow-lg z-10"></div>
+                
+                <div class="ml-16 md:ml-0 md:w-1/2 md:pr-8 md:text-right">
+                  <div class="card">
+                    <div class="flex items-center justify-between mb-4">
+                      <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-sm font-medium rounded-full">
+                        Feb 2024
+                      </span>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                      RV-PHYSIOCON Workshop
+                    </h3>
+                    
+                    <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                      Our team, <a href="https://biorehab.github.io/" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">@BioRehabGroup</a>, 
+                      conducted an interactive workshop on RV-PHYSIOCON in Bangalore. It was a great experience showcasing recent advancements 
+                      in NeuroRehabilitation technology and presenting developments in computer vision and open-source initiatives.
+                    </p>
+                    
+                    <div class="aspect-video rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800">
+                      <iframe 
+                        src="https://www.youtube.com/embed/hF_kUx-l4uM" 
+                        title="RV-PHYSIOCON Workshop"
+                        class="w-full h-full"
+                        style="border: none;" 
+                        allowfullscreen
+                      ></iframe>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mt-4">
+                      <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs font-medium rounded-full">Workshop</span>
+                      <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs font-medium rounded-full">NeuroRehab</span>
+                      <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-xs font-medium rounded-full">Computer Vision</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- News Item 2 - Nov 2023 -->
+              <div class="relative flex items-start md:justify-center">
+                <div class="absolute left-6 md:left-1/2 md:transform md:-translate-x-1/2 w-4 h-4 bg-purple-500 rounded-full border-4 border-white dark:border-gray-900 shadow-lg z-10"></div>
+                
+                <div class="ml-16 md:ml-0 md:w-1/2 md:pl-8">
+                  <div class="card">
+                    <div class="flex items-center justify-between mb-4">
+                      <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-sm font-medium rounded-full">
+                        Nov 2023
+                      </span>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                      ReHackathon, India'23
+                    </h3>
+                    
+                    <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                      Thrilled to be part of the <a href="https://biorehab.github.io/" target="_blank" class="text-purple-600 dark:text-purple-400 hover:underline">@BioRehabGroup</a> 
+                      that organized a hackathon on neuro-rehab engineering. The event combined interactive workshops with expert talks 
+                      at @CMCVellore, providing valuable opportunities to interact with students from various institutes and guide them on their projects.
+                    </p>
+                    
+                    <div class="aspect-video rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800">
+                      <iframe 
+                        src="https://www.youtube.com/embed/ZPAHwwmDY2A" 
+                        title="ReHackathon India 2023"
+                        class="w-full h-full"
+                        style="border: none;" 
+                        allowfullscreen
+                      ></iframe>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mt-4">
+                      <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-xs font-medium rounded-full">Hackathon</span>
+                      <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs font-medium rounded-full">Engineering</span>
+                      <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs font-medium rounded-full">Mentoring</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- News Item 3 - Oct 2023 -->
+              <div class="relative flex items-start md:justify-center">
+                <div class="absolute left-6 md:left-1/2 md:transform md:-translate-x-1/2 w-4 h-4 bg-yellow-500 rounded-full border-4 border-white dark:border-gray-900 shadow-lg z-10"></div>
+                
+                <div class="ml-16 md:ml-0 md:w-1/2 md:pr-8 md:text-right">
+                  <div class="card border-l-4 border-yellow-500">
+                    <div class="flex items-center justify-between mb-4">
+                      <span class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 text-sm font-medium rounded-full">
+                        Oct 2023
+                      </span>
+                      <div class="flex items-center gap-1">
+                        <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M5 16L3 5l5.5 3L12 5l3.5 3L21 5l-2 11H5zm2.7-2h8.6l.9-5.4-2.1 1.2L12 8l-3.1 1.8-2.1-1.2L7.7 14z"/>
+                        </svg>
+                        <span class="text-yellow-600 dark:text-yellow-400 font-semibold text-sm">Award</span>
+                      </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                      Silver Medal at CMC Annual Research Day'23
+                    </h3>
+                    
+                    <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                      At the CMC Annual Research Day, my latest research in Bioengineering earned me a silver medal, 
+                      recognizing the innovation and impact of my work in the field.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-2">
+                      <span class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 text-xs font-medium rounded-full">Silver Medal</span>
+                      <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs font-medium rounded-full">Bioengineering</span>
+                      <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs font-medium rounded-full">Research</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- News Item 4 - Dec 2022 -->
+              <div class="relative flex items-start md:justify-center">
+                <div class="absolute left-6 md:left-1/2 md:transform md:-translate-x-1/2 w-4 h-4 bg-orange-500 rounded-full border-4 border-white dark:border-gray-900 shadow-lg z-10"></div>
+                
+                <div class="ml-16 md:ml-0 md:w-1/2 md:pl-8">
+                  <div class="card border-l-4 border-orange-500">
+                    <div class="flex items-center justify-between mb-4">
+                      <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300 text-sm font-medium rounded-full">
+                        Dec 2022
+                      </span>
+                      <div class="flex items-center gap-1">
+                        <svg class="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M5 16L3 5l5.5 3L12 5l3.5 3L21 5l-2 11H5zm2.7-2h8.6l.9-5.4-2.1 1.2L12 8l-3.1 1.8-2.1-1.2L7.7 14z"/>
+                        </svg>
+                        <span class="text-orange-600 dark:text-orange-400 font-semibold text-sm">Best Paper</span>
+                      </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                      Prof. T. N. B. NEDUNGADI Best Paper Award
+                    </h3>
+                    
+                    <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                      Received the prestigious Prof. T. N. B. NEDUNGADI best paper award at TN-AMPICON'22 for presenting 
+                      research on "Design and Development Of 3D Printed Pediatric Phantom for Evaluating the Accuracy of 
+                      Deformable Image Registration Technique and Patient Specific QA".
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-2">
+                      <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300 text-xs font-medium rounded-full">Best Paper Award</span>
+                      <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs font-medium rounded-full">3D Printing</span>
+                      <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-xs font-medium rounded-full">Medical Physics</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- News Item 5 - April 2020 -->
+              <div class="relative flex items-start md:justify-center">
+                <div class="absolute left-6 md:left-1/2 md:transform md:-translate-x-1/2 w-4 h-4 bg-green-500 rounded-full border-4 border-white dark:border-gray-900 shadow-lg z-10"></div>
+                
+                <div class="ml-16 md:ml-0 md:w-1/2 md:pr-8 md:text-right">
+                  <div class="card">
+                    <div class="flex items-center justify-between mb-4">
+                      <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-sm font-medium rounded-full">
+                        April 2020
+                      </span>
+                      <div class="flex items-center gap-1">
+                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                        <span class="text-green-600 dark:text-green-400 font-semibold text-sm">Innovation</span>
+                      </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                      India's First 3D Printed Modular Talus
+                    </h3>
+                    
+                    <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                      Pioneered the development of India's first 3D printed modular Talus, representing a significant 
+                      breakthrough in personalized medical device manufacturing and orthopedic applications.
+                    </p>
+                    
+                    <div class="bg-gray-100 dark:bg-gray-800 rounded-lg p-4">
+                      <p class="text-sm text-gray-600 dark:text-gray-400 italic">
+                        "Interesting things, we were able to do." - A milestone in medical device innovation
+                      </p>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mt-4">
+                      <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs font-medium rounded-full">First in India</span>
+                      <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs font-medium rounded-full">3D Printing</span>
+                      <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-xs font-medium rounded-full">Medical Device</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section-padding bg-gradient-to-r from-blue-600 to-purple-600">
+      <div class="container-custom">
+        <div class="max-w-4xl mx-auto text-center text-white">
+          <h2 class="text-3xl md:text-4xl font-bold font-display mb-6">
+            Stay Connected
+          </h2>
+          <p class="text-xl mb-8 opacity-90">
+            Follow my research journey and get updates on latest developments
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a 
+              href="https://github.com/SujithChristopher" 
+              target="_blank"
+              class="bg-white text-blue-600 hover:bg-gray-100 font-medium px-8 py-3 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+              Follow on GitHub
+            </a>
+            <a 
+              href="https://www.researchgate.net/profile/Sujith-Christopher" 
+              target="_blank"
+              class="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white font-medium px-8 py-3 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19.586 0c-.818 0-1.508.19-2.073.565-.563.377-.87.994-.92 1.846-.051.851.178 1.66.685 2.42l3.219 4.815c.507.761.761 1.658.761 2.688 0 1.029-.254 1.927-.761 2.688l-3.219 4.815c-.507.76-.736 1.569-.685 2.42.05.852.357 1.469.92 1.846.565.375 1.255.565 2.073.565.818 0 1.508-.19 2.073-.565.563-.377.87-.994.92-1.846.051-.851-.178-1.66-.685-2.42l-3.219-4.815c-.507-.761-.761-1.658-.761-2.688 0-1.029.254-1.927.761-2.688l3.219-4.815c.507-.76.736-1.569.685-2.42-.05-.852-.357-1.469-.92-1.846C21.094.19 20.404 0 19.586 0z"/>
+              </svg>
+              ResearchGate Profile
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>

@@ -1,0 +1,97 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Personal website of Sujith Christopher - Project Research Scientist at IIT Madras" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sujithchristopher.github.io/" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "http://schema.org",
+        "@type": "Person",
+        "name": "Sujith Christopher",
+        "jobTitle": "Project Research Scientist",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "IIT Madras"
+        },
+        "url": "https://sujithchristopher.github.io/",
+        "sameAs": [
+          "https://github.com/SujithChristopher",
+          "https://www.researchgate.net/profile/Sujith-Christopher",
+          "https://twitter.com/Sujith_CJ"
+        ]
+      }
+    </script>
+  </head>
+  <body class="min-h-screen">
+    <slot />
+    
+    <script>
+      // Dark mode toggle functionality
+      function toggleDarkMode() {
+        const html = document.documentElement;
+        const isDark = html.classList.contains('dark');
+        
+        if (isDark) {
+          html.classList.remove('dark');
+          localStorage.setItem('theme', 'light');
+        } else {
+          html.classList.add('dark');
+          localStorage.setItem('theme', 'dark');
+        }
+      }
+      
+      // Initialize theme
+      function initTheme() {
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        }
+      }
+      
+      // Run on page load
+      initTheme();
+      
+      // Listen for theme changes
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (!localStorage.getItem('theme')) {
+          if (e.matches) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        }
+      });
+      
+      // Make toggleDarkMode available globally
+      (window as any).toggleDarkMode = toggleDarkMode;
+    </script>
+  </body>
+</html>
