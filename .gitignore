@@ -107,8 +107,8 @@ backup/
 *.swo
 *~
 
-# Package managers
-package-lock.json
+# Package managers (keeping package-lock.json for consistent deployments)
+# package-lock.json (commented out - needed for GitHub Actions)
 yarn.lock
 pnpm-lock.yaml
 
