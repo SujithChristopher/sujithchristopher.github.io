@@ -67,9 +67,10 @@ npm run preview      # Preview production build
 ### GitHub Pages
 The site uses GitHub Actions for automated deployment:
 - **Trigger**: Push to main branch
-- **Build**: npm run build creates static files in `dist/`
+- **Build**: Fresh npm install + npm run build creates static files in `dist/`
 - **Deploy**: GitHub Pages serves the built files
 - **Workflow**: `.github/workflows/deploy.yml`
+- **Note**: Uses fresh npm install (no lock file) to avoid platform-specific dependency issues
 
 ### Manual Deployment
 ```bash
