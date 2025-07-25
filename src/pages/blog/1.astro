@@ -6,6 +6,111 @@ import '../../styles/global.css';
 ---
 
 <Layout title="GdSerial: Bringing PySerial-like Functionality to Godot 4 - Sujith Christopher">
+  <!-- Prism.js CSS for syntax highlighting -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  
+  <!-- Custom code block styling with copy functionality -->
+  <style>
+    /* Code block container styling */
+    .code-block-container {
+      position: relative;
+      background: #000000;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    /* Remove all borders and ensure clean black background */
+    pre[class*="language-"] {
+      background: #000000 !important;
+      border: none !important;
+      margin: 0 !important;
+      border-radius: 0 !important;
+      padding: 1.5rem !important;
+      overflow-x: auto;
+    }
+    
+    code[class*="language-"] {
+      background: transparent !important;
+    }
+    
+    /* Copy button styling */
+    .copy-button {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      background: rgba(55, 65, 81, 0.8);
+      border: 1px solid rgba(75, 85, 99, 0.5);
+      color: #d1d5db;
+      padding: 0.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      z-index: 10;
+    }
+    
+    .copy-button:hover {
+      background: rgba(75, 85, 99, 0.9);
+      border-color: rgba(99, 102, 241, 0.5);
+      color: #ffffff;
+    }
+    
+    .copy-button.copied {
+      background: rgba(34, 197, 94, 0.8);
+      border-color: rgba(34, 197, 94, 0.5);
+      color: #ffffff;
+    }
+    
+    /* Ensure syntax highlighting colors work well with black background */
+    .token.comment,
+    .token.prolog,
+    .token.doctype,
+    .token.cdata {
+      color: #6b7280 !important;
+    }
+    
+    .token.punctuation {
+      color: #d1d5db !important;
+    }
+    
+    .token.property,
+    .token.tag,
+    .token.boolean,
+    .token.number,
+    .token.constant,
+    .token.symbol,
+    .token.deleted {
+      color: #f87171 !important;
+    }
+    
+    .token.selector,
+    .token.attr-name,
+    .token.string,
+    .token.char,
+    .token.builtin,
+    .token.inserted {
+      color: #34d399 !important;
+    }
+    
+    .token.operator,
+    .token.entity,
+    .token.url,
+    .language-css .token.string,
+    .style .token.string {
+      color: #60a5fa !important;
+    }
+    
+    .token.atrule,
+    .token.attr-value,
+    .token.keyword {
+      color: #a78bfa !important;
+    }
+    
+    .token.function,
+    .token.class-name {
+      color: #fbbf24 !important;
+    }
+  </style>
+  
   <Header />
   
   <main class="pt-16">
@@ -228,8 +333,13 @@ import '../../styles/global.css';
                   <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Option 2: Build from Source</h3>
                   <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
                     <p class="text-gray-700 dark:text-gray-300 mb-4">For developers who want to build from source or contribute:</p>
-                    <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
-                      <pre class="text-green-400 text-sm"><code># Clone the repository
+                    <div class="code-block-container">
+                      <button class="copy-button" aria-label="Copy code">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                      </button>
+                      <pre><code class="language-bash"># Clone the repository
 git clone https://github.com/SujithChristopher/gdserial.git
 cd gdserial
 
@@ -253,8 +363,13 @@ cargo build --release
                   <p class="text-gray-700 dark:text-gray-300 mb-4">
                     Here's a simple example of communicating with an Arduino board:
                   </p>
-                  <div class="bg-gray-900 rounded-lg p-6 overflow-x-auto">
-                    <pre class="text-green-400 text-sm"><code>extends Node
+                  <div class="code-block-container">
+                    <button class="copy-button" aria-label="Copy code">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                    </button>
+                    <pre><code class="language-gdscript">extends Node
 
 var serial: GdSerial
 
@@ -290,8 +405,13 @@ func _ready():
                   <p class="text-gray-700 dark:text-gray-300 mb-4">
                     Automatically find available serial ports:
                   </p>
-                  <div class="bg-gray-900 rounded-lg p-6 overflow-x-auto">
-                    <pre class="text-green-400 text-sm"><code>extends Node
+                  <div class="code-block-container">
+                    <button class="copy-button" aria-label="Copy code">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                    </button>
+                    <pre><code class="language-gdscript">extends Node
 
 func discover_ports():
     var serial = GdSerial.new()
@@ -310,8 +430,13 @@ func discover_ports():
                   <p class="text-gray-700 dark:text-gray-300 mb-4">
                     For applications requiring binary protocol communication:
                   </p>
-                  <div class="bg-gray-900 rounded-lg p-6 overflow-x-auto">
-                    <pre class="text-green-400 text-sm"><code>extends Node
+                  <div class="code-block-container">
+                    <button class="copy-button" aria-label="Copy code">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                    </button>
+                    <pre><code class="language-gdscript">extends Node
 
 func handle_binary_data():
     var serial = GdSerial.new()
@@ -524,4 +649,71 @@ func handle_binary_data():
   </main>
   
   <Footer />
+  
+  <!-- Prism.js JavaScript for syntax highlighting -->
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  
+  <!-- Copy to clipboard functionality -->
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add copy functionality to all copy buttons
+      const copyButtons = document.querySelectorAll('.copy-button');
+      
+      copyButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Find the code element in the same container
+          const container = this.closest('.code-block-container');
+          const codeElement = container.querySelector('code');
+          
+          if (codeElement) {
+            // Get the text content without line numbers or extra whitespace
+            const codeText = codeElement.textContent.trim();
+            
+            // Copy to clipboard
+            navigator.clipboard.writeText(codeText).then(() => {
+              // Visual feedback
+              const originalIcon = this.innerHTML;
+              this.classList.add('copied');
+              this.innerHTML = `
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              `;
+              
+              // Reset after 2 seconds
+              setTimeout(() => {
+                this.classList.remove('copied');
+                this.innerHTML = originalIcon;
+              }, 2000);
+            }).catch(err => {
+              console.error('Failed to copy code: ', err);
+              
+              // Fallback for older browsers
+              const textArea = document.createElement('textarea');
+              textArea.value = codeText;
+              document.body.appendChild(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              document.body.removeChild(textArea);
+              
+              // Visual feedback for fallback
+              const originalIcon = this.innerHTML;
+              this.classList.add('copied');
+              this.innerHTML = `
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              `;
+              
+              setTimeout(() => {
+                this.classList.remove('copied');
+                this.innerHTML = originalIcon;
+              }, 2000);
+            });
+          }
+        });
+      });
+    });
+  </script>
 </Layout>
