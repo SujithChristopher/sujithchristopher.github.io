@@ -1,0 +1,47 @@
+# Robots.txt for https://sujithchristopher.github.io/
+# Optimized for search engine crawling and indexing
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://sujithchristopher.github.io/sitemap.xml
+
+# Crawl-delay (polite crawling)
+Crawl-delay: 1
+
+# Specific instructions for search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Block access to development and backup files
+Disallow: /backup/
+Disallow: /*.bak
+Disallow: /*.tmp
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /src/
+
+# Block common crawlers we don't want
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /

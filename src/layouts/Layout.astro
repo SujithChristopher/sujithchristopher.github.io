@@ -2,9 +2,29 @@
 export interface Props {
   title: string;
   description?: string;
+  keywords?: string;
+  image?: string;
+  type?: string;
+  publishedTime?: string;
+  modifiedTime?: string;
+  author?: string;
+  canonical?: string;
 }
 
-const { title, description = "Personal website of Sujith Christopher - Project Research Scientist at IIT Madras" } = Astro.props;
+const { 
+  title, 
+  description = "Personal website of Sujith Christopher - Project Research Scientist at IIT Madras specializing in bioengineering, neuro-rehabilitation technology, computer vision, AI, sensors, and biomedical robotics.",
+  keywords = "Sujith Christopher, bioengineering, neuro-rehabilitation, computer vision, AI, sensors, biomedical robotics, IIT Madras, research scientist, Arduino, Godot, serial communication",
+  image = "https://sujithchristopher.github.io/Sujith.jpg",
+  type = "website",
+  publishedTime,
+  modifiedTime,
+  author = "Sujith Christopher",
+  canonical
+} = Astro.props;
+
+const currentUrl = canonical || `https://sujithchristopher.github.io${Astro.url.pathname}`;
+const siteName = "Sujith Christopher - Research Scientist";
 ---
 
 <!DOCTYPE html>
@@ -12,38 +32,129 @@ const { title, description = "Personal website of Sujith Christopher - Project R
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content={author} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <link rel="canonical" href={currentUrl} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     
-    <!-- Open Graph -->
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#3b82f6" />
+    <meta name="msapplication-navbutton-color" content="#3b82f6" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={currentUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://sujithchristopher.github.io/" />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:alt" content={`Photo of ${author}`} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content="en_US" />
+    {publishedTime && <meta property="article:published_time" content={publishedTime} />}
+    {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+    {type === "article" && <meta property="article:author" content={author} />}
     
-    <!-- Twitter Card -->
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={currentUrl} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    <meta name="twitter:image:alt" content={`Photo of ${author}`} />
+    <meta name="twitter:creator" content="@Sujith_CJ" />
+    <meta name="twitter:site" content="@Sujith_CJ" />
+    
+    <!-- LinkedIn -->
+    <meta property="linkedin:owner" content="sujith-christopher" />
     
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json" is:inline>
       {
-        "@context": "http://schema.org",
-        "@type": "Person",
-        "name": "Sujith Christopher",
-        "jobTitle": "Project Research Scientist",
-        "worksFor": {
-          "@type": "Organization",
-          "name": "IIT Madras"
-        },
-        "url": "https://sujithchristopher.github.io/",
-        "sameAs": [
-          "https://github.com/SujithChristopher",
-          "https://www.researchgate.net/profile/Sujith-Christopher",
-          "https://twitter.com/Sujith_CJ"
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://sujithchristopher.github.io/#person",
+            "name": "Sujith Christopher",
+            "givenName": "Sujith",
+            "familyName": "Christopher",
+            "jobTitle": "Project Research Scientist",
+            "description": "Project Research Scientist at IIT Madras specializing in bioengineering, neuro-rehabilitation technology, computer vision, AI, sensors, and biomedical robotics.",
+            "url": "https://sujithchristopher.github.io/",
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://sujithchristopher.github.io/Sujith.jpg",
+              "caption": "Sujith Christopher - Project Research Scientist"
+            },
+            "worksFor": {
+              "@type": "Organization",
+              "@id": "https://sujithchristopher.github.io/#organization",
+              "name": "IIT Madras",
+              "description": "Indian Institute of Technology Madras",
+              "url": "https://www.iitm.ac.in/"
+            },
+            "alumniOf": [
+              {
+                "@type": "Organization",
+                "name": "CMC Vellore",
+                "description": "Christian Medical College, Vellore"
+              },
+              {
+                "@type": "Organization", 
+                "name": "SCTIMST Trivandrum",
+                "description": "Sree Chitra Tirunal Institute for Medical Sciences and Technology"
+              },
+              {
+                "@type": "Organization",
+                "name": "Karunya University",
+                "description": "Karunya Institute of Technology and Sciences"
+              }
+            ],
+            "knowsAbout": [
+              "Bioengineering",
+              "Neuro-rehabilitation Technology", 
+              "Computer Vision",
+              "Artificial Intelligence",
+              "Sensors",
+              "Biomedical Robotics",
+              "Serial Communication",
+              "Arduino Programming",
+              "Godot Game Engine",
+              "Rust Programming"
+            ],
+            "sameAs": [
+              "https://github.com/SujithChristopher",
+              "https://www.researchgate.net/profile/Sujith-Christopher", 
+              "https://twitter.com/Sujith_CJ",
+              "https://orcid.org/0000-0000-0000-0000"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://sujithchristopher.github.io/#website",
+            "url": "https://sujithchristopher.github.io/",
+            "name": "Sujith Christopher - Research Scientist",
+            "description": "Personal website of Sujith Christopher showcasing research in bioengineering, neuro-rehabilitation technology, and academic achievements.",
+            "publisher": {
+              "@id": "https://sujithchristopher.github.io/#person"
+            },
+            "potentialAction": [
+              {
+                "@type": "SearchAction",
+                "target": {
+                  "@type": "EntryPoint",
+                  "urlTemplate": "https://sujithchristopher.github.io/?s={search_term_string}"
+                },
+                "query-input": "required name=search_term_string"
+              }
+            ]
+          }
         ]
       }
     </script>
