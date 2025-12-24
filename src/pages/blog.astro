@@ -4,7 +4,6 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 
-// Blog posts data - in a real implementation, this would come from a CMS or markdown files
 const blogPosts = [
   {
     id: 1,
@@ -26,166 +25,125 @@ const blogPosts = [
 >
   <Header />
   
-  <main class="pt-16">
+  <main>
     <!-- Hero Section -->
-    <section class="section-padding bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800">
-      <div class="container-custom">
-        <div class="text-center max-w-4xl mx-auto">
-          <h1 class="text-4xl md:text-5xl font-bold font-display text-gray-900 dark:text-white mb-6">
-            Tech 
-            <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+    <section class="relative overflow-hidden pt-32 pb-20 bg-grid-pattern">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary-50/50 via-white to-accent-50/30 dark:from-primary-950/20 dark:via-gray-950 dark:to-gray-900 -z-10"></div>
+      <div class="container-custom relative">
+        <div class="text-center max-w-4xl mx-auto animate-fade-in">
+          <h1 class="text-5xl md:text-6xl font-bold mb-8">
+            Technical 
+            <span class="text-gradient">
               Blog
             </span>
           </h1>
-          <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-            Insights into research tools, open-source projects, and technical explorations in bioengineering and software development
+          <p class="text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
+            Exploring the intersection of engineering, software development, and open-source research tools.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Featured Post -->
+    <!-- Featured Posts -->
     <section class="section-padding">
       <div class="container-custom">
-        <div class="max-w-4xl mx-auto">
-          <div class="mb-8">
-            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Featured Post</h2>
+        <div class="max-w-5xl mx-auto">
+          <h2 class="text-2xl font-bold mb-12 flex items-center">
+            <span class="w-8 h-1 bg-primary-600 mr-4 rounded-full"></span>
+            Featured Articles
+          </h2>
+          
+          <div class="grid grid-cols-1 gap-12">
+            {blogPosts.map(post => (
+              <article class="publication-card glass-card overflow-hidden group hover:border-primary-500/30 transition-all duration-500">
+                <div class="p-8 md:p-12">
+                  <div class="flex flex-wrap items-center gap-4 mb-8">
+                    <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 text-[10px] font-bold uppercase tracking-widest rounded-md border border-primary-100 dark:border-primary-800">
+                      Technical Guide
+                    </span>
+                    <span class="text-gray-400 text-sm">
+                      {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                    </span>
+                    <span class="text-gray-300 dark:text-gray-700">•</span>
+                    <span class="text-gray-500 text-sm">{post.readTime}</span>
+                  </div>
+                  
+                  <h3 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6 group-hover:text-primary-600 transition-colors leading-tight">
+                    <a href={`/blog/${post.id}`}>
+                      {post.title}
+                    </a>
+                  </h3>
+                  
+                  <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-8 max-w-3xl">
+                    {post.excerpt}
+                  </p>
+                  
+                  <div class="flex flex-wrap gap-2 mb-10">
+                    {post.tags.map(tag => (
+                      <span class="px-3 py-1 bg-gray-50 dark:bg-gray-800 text-gray-500 dark:text-gray-400 text-xs font-semibold rounded-lg">
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  <div class="flex items-center justify-between pt-8 border-t border-gray-100 dark:border-gray-800">
+                    <a href={`/blog/${post.id}`} class="btn-primary">
+                      Read Article
+                    </a>
+                    
+                    {post.githubUrl && (
+                      <a href={post.githubUrl} target="_blank" class="flex items-center space-x-2 text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        <span class="font-semibold text-sm">Code on GitHub</span>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topics Coming Soon -->
+    <section class="section-padding bg-gray-50 dark:bg-gray-900/50">
+      <div class="container-custom">
+        <div class="max-w-5xl mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold mb-4">Pipeline</h2>
+            <p class="text-gray-500">Upcoming topics and series I'm currently developing</p>
           </div>
           
-          {blogPosts.filter(post => post.featured).map(post => (
-            <article class="card mb-12 overflow-hidden group hover:shadow-2xl transition-shadow duration-300">
-              <div class="p-8">
-                <div class="flex items-center gap-2 mb-4">
-                  <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs font-medium rounded-full">
-                    Featured
-                  </span>
-                  <span class="text-gray-500 dark:text-gray-400 text-sm">
-                    {new Date(post.date).toLocaleDateString('en-US', { 
-                      year: 'numeric', 
-                      month: 'long', 
-                      day: 'numeric' 
-                    })}
-                  </span>
-                  <span class="text-gray-400 dark:text-gray-500">•</span>
-                  <span class="text-gray-500 dark:text-gray-400 text-sm">{post.readTime}</span>
-                </div>
-                
-                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  <a href={`/blog/${post.id}`} class="hover:underline">
-                    {post.title}
-                  </a>
-                </h2>
-                
-                <p class="text-gray-600 dark:text-gray-300 text-lg leading-relaxed mb-6">
-                  {post.excerpt}
-                </p>
-                
-                <div class="flex flex-wrap gap-2 mb-6">
-                  {post.tags.map(tag => (
-                    <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm rounded-full">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                
-                <div class="flex items-center justify-between">
-                  <a 
-                    href={`/blog/${post.id}`} 
-                    class="btn-primary text-sm"
-                  >
-                    Read More
-                  </a>
-                  
-                  {post.githubUrl && (
-                    <a 
-                      href={post.githubUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      class="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-                    >
-                      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                      </svg>
-                      <span class="text-sm">View on GitHub</span>
-                    </a>
-                  )}
-                </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="glass-card p-8 border-t-4 border-t-primary-500">
+              <div class="w-12 h-12 bg-primary-50 dark:bg-primary-900/30 rounded-xl flex items-center justify-center text-primary-600 mb-6">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
               </div>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- Coming Soon Section -->
-    <section class="section-padding bg-gray-50 dark:bg-gray-800/50">
-      <div class="container-custom">
-        <div class="max-w-4xl mx-auto text-center">
-          <div class="card p-12">
-            <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-              </svg>
+              <h3 class="text-xl font-bold mb-3">Research Tools</h3>
+              <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                Tutorials on building custom acquisition systems and analysis pipelines for bio-signal processing.
+              </p>
             </div>
             
-            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-              More Posts Coming Soon
-            </h3>
-            
-            <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-              I'm working on more blog posts covering topics like medical device interfacing, 
-              rehabilitation technology, 3D printing for medical applications, and other open-source tools I've developed.
-            </p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-              <div class="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                <h4 class="font-semibold text-blue-900 dark:text-blue-300 mb-2">Research Tools</h4>
-                <p class="text-blue-700 dark:text-blue-400">Custom software for bioengineering research</p>
+            <div class="glass-card p-8 border-t-4 border-t-accent-500">
+              <div class="w-12 h-12 bg-accent-50 dark:bg-accent-900/30 rounded-xl flex items-center justify-center text-accent-600 mb-6">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
               </div>
-              
-              <div class="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
-                <h4 class="font-semibold text-green-900 dark:text-green-300 mb-2">Open Source</h4>
-                <p class="text-green-700 dark:text-green-400">Libraries and frameworks I've contributed to</p>
-              </div>
-              
-              <div class="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
-                <h4 class="font-semibold text-purple-900 dark:text-purple-300 mb-2">Technical Insights</h4>
-                <p class="text-purple-700 dark:text-purple-400">Deep dives into engineering challenges</p>
-              </div>
+              <h3 class="text-xl font-bold mb-3">Hardware Interfacing</h3>
+              <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                Deep dives into Rust, Arduino, and real-time communication protocols for medical robotics.
+              </p>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Newsletter Section -->
-    <section class="section-padding">
-      <div class="container-custom">
-        <div class="max-w-2xl mx-auto text-center">
-          <div class="card p-8 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 border border-blue-200 dark:border-blue-800">
-            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-              Stay Updated
-            </h3>
             
-            <p class="text-gray-600 dark:text-gray-300 mb-6">
-              Get notified when I publish new blog posts about research tools, open-source projects, and technical insights.
-            </p>
-            
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="https://github.com/SujithChristopher" 
-                target="_blank"
-                class="btn-primary"
-              >
-                Follow on GitHub
-              </a>
-              <a 
-                href="https://www.researchgate.net/profile/Sujith-Christopher" 
-                target="_blank"
-                class="btn-secondary"
-              >
-                Connect on ResearchGate
-              </a>
+            <div class="glass-card p-8 border-t-4 border-t-emerald-500">
+              <div class="w-12 h-12 bg-emerald-50 dark:bg-emerald-900/30 rounded-xl flex items-center justify-center text-emerald-600 mb-6">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"/></svg>
+              </div>
+              <h3 class="text-xl font-bold mb-3">AI in Rehab</h3>
+              <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                Exploring computer vision frameworks for automated movement assessment and clinical feedback.
+              </p>
             </div>
           </div>
         </div>
