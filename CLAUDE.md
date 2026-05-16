@@ -64,7 +64,16 @@ npm run preview      # Preview production build
 - **SEO Optimized**: Meta tags, Open Graph, and JSON-LD structured data
 - **Performance**: Static generation with optimized assets
 - **Accessibility**: Semantic HTML and ARIA labels
-- **Modern UI**: Gradient backgrounds, animations, and clean typography
+- **Academic UI**: Compact, information-dense design — minimal animations, no glass morphism
+
+## Design Conventions
+
+The site uses a **compact academic aesthetic** (think faculty.university.edu style):
+- Section headings: `text-lg font-semibold border-b pb-2` pattern, no decorative bars
+- Publication rows: `.pub-row` class (defined in `global.css`) — bibliography-style with inline year
+- Cards: plain `border border-gray-200 dark:border-gray-700 rounded-md p-4/5` — no backdrop blur
+- No gradient text, no emoji badges, no hover translate effects
+- Tailwind custom colors (`primary`, `accent`) defined in `tailwind.config.mjs`
 
 ## Deployment
 
@@ -78,16 +87,31 @@ The site uses GitHub Actions for automated deployment:
 
 ### Manual Deployment
 ```bash
-npm run build        # Build the site
+npm run build        # Runs astro check (TypeScript type-check) then astro build
 # The dist/ folder contains the deployable files
 ```
+
+### Backup
+`backup/` contains the archived **old static HTML site** (Bootstrap-based, no build system). It is not the current Astro project and should not be edited.
 
 ## Common Development Tasks
 
 ### Adding New Publications
 1. Edit `src/pages/research.astro`
-2. Add new publication card following existing pattern
-3. Include appropriate tags and styling
+2. Add a `.pub-row` div inside the relevant `divide-y` container:
+   ```html
+   <div class="pub-row">
+     <div class="flex items-baseline gap-4">
+       <span class="text-xs text-gray-400 dark:text-gray-500 font-mono w-10 shrink-0">2024</span>
+       <div>
+         <p class="text-sm font-semibold text-gray-900 dark:text-white leading-snug mb-0.5">Title</p>
+         <p class="text-sm text-gray-600 dark:text-gray-400">Authors (<span class="font-bold underline decoration-primary-500/50">Sujith Christopher</span> bold+underlined)</p>
+         <p class="text-xs text-gray-500 italic mt-0.5">Journal · Vol info</p>
+       </div>
+     </div>
+   </div>
+   ```
+3. Award items: use `<span class="text-xs font-semibold text-amber-700 dark:text-amber-400">Award Name —</span>` inline before title (no emoji badges)
 
 ### Adding News Items
 1. Edit `src/pages/news.astro`
@@ -101,13 +125,9 @@ npm run build        # Build the site
 
 ### Styling Updates
 - Use Tailwind utilities for quick styling
-- Extend theme in `tailwind.config.mjs` for custom colors/fonts
+- **Custom colors** (`primary-*`, `accent-*`) are defined in `tailwind.config.mjs` — only `500` and `600` shades exist for `accent`
+- Global reusable classes (`.pub-row`, `.glass-card`, `.section-padding`, etc.) are in `src/styles/global.css`
 - Add global styles in `src/styles/global.css`
-
-### Performance Optimization
-- Images are served from `public/` directory
-- CSS is automatically optimized by Astro
-- Components are pre-rendered for fast loading
 
 ## Dependencies
 
