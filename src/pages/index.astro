@@ -3,15 +3,79 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
+
+// ─── DATA ────────────────────────────────────────────────────────────────────
+
+type Position = {
+  title: string;
+  dateRange: string;
+  org: string;
+  isCurrent?: boolean;
+  tags?: string[];
+};
+
+type Degree = {
+  name: string;
+  dateRange: string;
+  institution: string;
+};
+
+const experience: Position[] = [
+  {
+    title: 'Project Research Scientist',
+    dateRange: 'Mar 2025 - Present',
+    org: 'IIT Madras, Dept. of Mechanical Engineering',
+    isCurrent: true,
+    tags: ['Neuro-Rehab', 'Robotics'],
+  },
+  {
+    title: 'Project Associate',
+    dateRange: 'Oct 2023 - Feb 2025',
+    org: 'IIT Madras, Dept. of Mechanical Engineering',
+  },
+  {
+    title: 'Postgraduate Trainee',
+    dateRange: 'Oct 2021 - Oct 2023',
+    org: 'CMC Vellore, Dept. of Bioengineering',
+  },
+  {
+    title: 'Project Associate',
+    dateRange: 'Mar 2021 - Sep 2021',
+    org: 'IIT Madras, Dept. of Applied Mechanics',
+  },
+  {
+    title: 'Senior Research Fellow',
+    dateRange: 'Aug 2019 - Aug 2020',
+    org: 'CMC Vellore, Dept. of Radiation Oncology',
+  },
+];
+
+const education: Degree[] = [
+  {
+    name: 'M.S. in Bioengineering',
+    dateRange: '2021 — 2023',
+    institution: 'Joint degree program by CMC Vellore & SCTIMST Trivandrum',
+  },
+  {
+    name: 'B.Tech in Electronics',
+    dateRange: '2013 — 2017',
+    institution: 'Karunya Institute of Technology and Sciences, Coimbatore',
+  },
+];
+
+const EXPERIENCE_INITIAL = 3;
+const currentRole = experience.find(e => e.isCurrent)!;
+
+// ─── END DATA ─────────────────────────────────────────────────────────────────
 ---
 
-<Layout 
+<Layout
   title="Sujith Christopher - Project Research Scientist | Bioengineering & AI Researcher"
   description="Sujith Christopher is a Project Research Scientist at IIT Madras specializing in bioengineering, neuro-rehabilitation technology, computer vision, AI, sensors, and biomedical robotics. Explore his research, publications, and professional journey."
   keywords="Sujith Christopher, Project Research Scientist, IIT Madras, bioengineering, neuro-rehabilitation, computer vision, artificial intelligence, sensors, biomedical robotics, research scientist, CMC Vellore, SCTIMST"
 >
   <Header />
-  
+
   <main>
     <!-- Hero Section -->
     <section class="pt-20 pb-8 lg:pt-28 lg:pb-10">
@@ -23,7 +87,7 @@ import '../styles/global.css';
               Sujith Christopher
             </h1>
             <p class="text-base text-primary-600 dark:text-primary-400 font-medium mb-3">
-              Project Research Scientist, IIT Madras
+              {currentRole.title}, IIT Madras
             </p>
             <p class="text-sm text-gray-600 dark:text-gray-400 mb-6 max-w-lg leading-relaxed">
               Bridging <span class="font-medium text-gray-800 dark:text-gray-200">Bioengineering</span> and <span class="font-medium text-gray-800 dark:text-gray-200">AI</span> to create innovative neuro-rehabilitation technologies.
@@ -77,37 +141,36 @@ import '../styles/global.css';
             <!-- Education -->
             <div class="card">
               <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-3">Education</h3>
-              
+
               <div class="space-y-4">
-                <div class="relative pl-6 border-l-2 border-primary-200 dark:border-primary-800 group-hover:border-primary-500 transition-colors">
-                  <h4 class="text-base font-bold text-gray-900 dark:text-white mb-1">M.S. in Bioengineering</h4>
-                  <p class="text-primary-600 dark:text-primary-400 font-semibold text-xs mb-1">2021 — 2023</p>
-                  <p class="text-gray-600 dark:text-gray-400 text-xs leading-relaxed">Joint degree program by CMC Vellore & SCTIMST Trivandrum</p>
-                </div>
-                
-                <div class="relative pl-6 border-l-2 border-primary-200 dark:border-primary-800 group-hover:border-primary-500 transition-colors">
-                  <h4 class="text-base font-bold text-gray-900 dark:text-white mb-1">B.Tech in Electronics</h4>
-                  <p class="text-primary-600 dark:text-primary-400 font-semibold text-xs mb-1">2013 — 2017</p>
-                  <p class="text-gray-600 dark:text-gray-400 text-xs leading-relaxed">Karunya Institute of Technology and Sciences, Coimbatore</p>
-                </div>
+                {education.map(deg => (
+                  <div class="relative pl-6 border-l-2 border-primary-200 dark:border-primary-800 group-hover:border-primary-500 transition-colors">
+                    <h4 class="text-base font-bold text-gray-900 dark:text-white mb-1">{deg.name}</h4>
+                    <p class="text-primary-600 dark:text-primary-400 font-semibold text-xs mb-1">{deg.dateRange}</p>
+                    <p class="text-gray-600 dark:text-gray-400 text-xs leading-relaxed">{deg.institution}</p>
+                  </div>
+                ))}
               </div>
             </div>
 
             <!-- Current Position -->
             <div class="card">
               <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-3">Current Role</h3>
-              
+
               <div class="relative pl-6 border-l-2 border-accent-200 dark:border-accent-800 group-hover:border-accent-500 transition-colors">
-                <h4 class="text-base font-bold text-gray-900 dark:text-white mb-1">Project Research Scientist</h4>
+                <h4 class="text-base font-bold text-gray-900 dark:text-white mb-1">{currentRole.title}</h4>
                 <p class="text-accent-600 dark:text-accent-400 font-semibold text-xs mb-1">Mar 2025 — Present</p>
                 <p class="text-gray-600 dark:text-gray-400 text-xs leading-relaxed mb-3">
                   Department of Mechanical Engineering<br/>
                   <span class="font-bold">Indian Institute of Technology (IIT) Madras</span>
                 </p>
-                <div class="flex flex-wrap gap-2">
-                  <span class="px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-[9px] font-bold uppercase tracking-wider rounded-md">Neuro-Rehab</span>
-                  <span class="px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-[9px] font-bold uppercase tracking-wider rounded-md">Robotics</span>
-                </div>
+                {currentRole.tags && (
+                  <div class="flex flex-wrap gap-2">
+                    {currentRole.tags.map(tag => (
+                      <span class="px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-[9px] font-bold uppercase tracking-wider rounded-md">{tag}</span>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -122,77 +185,50 @@ import '../styles/global.css';
           <div class="mb-6">
             <h2 class="text-lg font-semibold text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-700 pb-2">Professional Journey</h2>
           </div>
-          
+
           <div class="relative">
             <!-- Timeline line -->
             <div class="absolute left-10 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-primary-200 via-primary-500 to-accent-500 dark:from-primary-900 dark:via-primary-700 dark:to-accent-900 md:-translate-x-1/2 rounded-full opacity-30"></div>
-            
+
             <div class="space-y-8 relative">
-              <!-- IIT Madras Current -->
-              <div class="relative flex flex-col md:flex-row items-center">
-                <div class="absolute left-10 md:left-1/2 w-3 h-3 bg-white dark:bg-gray-950 border-2 border-gray-400 dark:border-gray-600 rounded-full md:-translate-x-1/2 z-10"></div>
-                <div class="md:w-1/2 md:pr-12 ml-20 md:ml-0 md:text-right">
-                  <div class="border border-gray-200 dark:border-gray-700 rounded-md p-3">
-                    <h3 class="text-sm font-semibold text-gray-900 dark:text-white mb-0.5">Project Research Scientist</h3>
-                    <p class="text-primary-600 dark:text-primary-400 text-xs mb-1">Mar 2025 - Present</p>
-                    <p class="text-gray-600 dark:text-gray-400 text-xs">IIT Madras, Dept. of Mechanical Engineering</p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- IIT Madras Associate -->
-              <div class="relative flex flex-col md:flex-row items-center">
-                <div class="absolute left-10 md:left-1/2 w-3 h-3 bg-white dark:bg-gray-950 border-2 border-gray-400 dark:border-gray-600 rounded-full md:-translate-x-1/2 z-10"></div>
-                <div class="md:w-1/2 md:pl-12 ml-20 md:ml-0 md:mr-auto">
-                  <div class="border border-gray-200 dark:border-gray-700 rounded-md p-3">
-                    <h3 class="text-sm font-semibold text-gray-900 dark:text-white mb-0.5">Project Associate</h3>
-                    <p class="text-gray-500 dark:text-gray-400 text-xs mb-1">Oct 2023 - Feb 2025</p>
-                    <p class="text-gray-600 dark:text-gray-400 text-xs">IIT Madras, Dept. of Mechanical Engineering</p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- CMC Vellore -->
-              <div class="relative flex flex-col md:flex-row items-center">
-                <div class="absolute left-10 md:left-1/2 w-3 h-3 bg-white dark:bg-gray-950 border-2 border-gray-400 dark:border-gray-600 rounded-full md:-translate-x-1/2 z-10"></div>
-                <div class="md:w-1/2 md:pr-12 ml-20 md:ml-0 md:text-right">
-                  <div class="border border-gray-200 dark:border-gray-700 rounded-md p-3">
-                    <h3 class="text-sm font-semibold text-gray-900 dark:text-white mb-0.5">Postgraduate Trainee</h3>
-                    <p class="text-gray-500 dark:text-gray-400 text-xs mb-1">Oct 2021 - Oct 2023</p>
-                    <p class="text-gray-600 dark:text-gray-400 text-xs">CMC Vellore, Dept. of Bioengineering</p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Hidden positions -->
-              <div id="hidden-positions" class="hidden space-y-8">
-                <div class="relative flex flex-col md:flex-row items-center pt-8">
-                  <div class="absolute left-10 md:left-1/2 w-3 h-3 bg-white dark:bg-gray-950 border-2 border-gray-400 dark:border-gray-600 rounded-full md:-translate-x-1/2 z-10"></div>
-                  <div class="md:w-1/2 md:pl-12 ml-20 md:ml-0 md:mr-auto">
-                    <div class="border border-gray-200 dark:border-gray-700 rounded-md p-3">
-                      <h3 class="text-sm font-semibold text-gray-900 dark:text-white mb-0.5">Project Associate</h3>
-                      <p class="text-gray-500 dark:text-gray-400 text-xs mb-1">Mar 2021 - Sep 2021</p>
-                      <p class="text-gray-600 dark:text-gray-400 text-xs">IIT Madras, Dept. of Applied Mechanics</p>
-                    </div>
-                  </div>
-                </div>
-
+              {experience.slice(0, EXPERIENCE_INITIAL).map((pos, i) => (
                 <div class="relative flex flex-col md:flex-row items-center">
                   <div class="absolute left-10 md:left-1/2 w-3 h-3 bg-white dark:bg-gray-950 border-2 border-gray-400 dark:border-gray-600 rounded-full md:-translate-x-1/2 z-10"></div>
-                  <div class="md:w-1/2 md:pr-12 ml-20 md:ml-0 md:text-right">
+                  <div class={i % 2 === 0
+                    ? 'md:w-1/2 md:pr-12 ml-20 md:ml-0 md:text-right'
+                    : 'md:w-1/2 md:pl-12 ml-20 md:ml-0 md:mr-auto'
+                  }>
                     <div class="border border-gray-200 dark:border-gray-700 rounded-md p-3">
-                      <h3 class="text-sm font-semibold text-gray-900 dark:text-white mb-0.5">Senior Research Fellow</h3>
-                      <p class="text-gray-500 dark:text-gray-400 text-xs mb-1">Aug 2019 - Aug 2020</p>
-                      <p class="text-gray-600 dark:text-gray-400 text-xs">CMC Vellore, Dept. of Radiation Oncology</p>
+                      <h3 class="text-sm font-semibold text-gray-900 dark:text-white mb-0.5">{pos.title}</h3>
+                      <p class={`${pos.isCurrent ? 'text-primary-600 dark:text-primary-400' : 'text-gray-500 dark:text-gray-400'} text-xs mb-1`}>{pos.dateRange}</p>
+                      <p class="text-gray-600 dark:text-gray-400 text-xs">{pos.org}</p>
                     </div>
                   </div>
                 </div>
+              ))}
+
+              <div id="hidden-positions" class="hidden space-y-8">
+                {experience.slice(EXPERIENCE_INITIAL).map((pos, i) => (
+                  <div class={`relative flex flex-col md:flex-row items-center${i === 0 ? ' pt-8' : ''}`}>
+                    <div class="absolute left-10 md:left-1/2 w-3 h-3 bg-white dark:bg-gray-950 border-2 border-gray-400 dark:border-gray-600 rounded-full md:-translate-x-1/2 z-10"></div>
+                    <div class={(EXPERIENCE_INITIAL + i) % 2 === 0
+                      ? 'md:w-1/2 md:pr-12 ml-20 md:ml-0 md:text-right'
+                      : 'md:w-1/2 md:pl-12 ml-20 md:ml-0 md:mr-auto'
+                    }>
+                      <div class="border border-gray-200 dark:border-gray-700 rounded-md p-3">
+                        <h3 class="text-sm font-semibold text-gray-900 dark:text-white mb-0.5">{pos.title}</h3>
+                        <p class="text-gray-500 dark:text-gray-400 text-xs mb-1">{pos.dateRange}</p>
+                        <p class="text-gray-600 dark:text-gray-400 text-xs">{pos.org}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
 
               <!-- Show More Button -->
               <div class="text-center pt-4">
-                <button 
-                  id="toggle-positions-btn" 
+                <button
+                  id="toggle-positions-btn"
                   class="btn-secondary group !py-2 !px-6 !text-sm"
                 >
                   <span id="positions-btn-text">Explore Full Journey</span>
@@ -252,24 +288,22 @@ import '../styles/global.css';
       </div>
     </section>
   </main>
-  
+
   <Footer />
 </Layout>
 
 <script>
-  // Minimal, scoped JavaScript for position toggle
   document.addEventListener('DOMContentLoaded', () => {
     const toggleBtn = document.getElementById('toggle-positions-btn');
     const hiddenPositions = document.getElementById('hidden-positions');
     const btnText = document.getElementById('positions-btn-text');
     const chevron = document.getElementById('positions-chevron');
-    
+
     let isExpanded = false;
 
     toggleBtn?.addEventListener('click', () => {
       isExpanded = !isExpanded;
-      
-      // Toggle visibility with smooth animation
+
       if (isExpanded) {
         hiddenPositions?.classList.remove('hidden');
         if (btnText) btnText.textContent = 'Show Less Positions';

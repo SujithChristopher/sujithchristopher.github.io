@@ -3,6 +3,198 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
+
+// ─── DATA ────────────────────────────────────────────────────────────────────
+
+type Author = { name: string; highlight?: boolean };
+
+type JournalPub = {
+  year: string;
+  title: string;
+  authors: Author[];
+  venue?: string;
+  url?: string;
+};
+
+type ConferencePub = {
+  year: string;
+  title: string;
+  authors: Author[];
+  award?: string;
+  conference?: string;
+  type?: string;
+  url?: string;
+};
+
+const journalPubs: JournalPub[] = [
+  {
+    year: '2020',
+    title: 'Dosimetric and Clinical Advantages of Adapting the DIBH Technique to Hybrid Solitary Dynamic Portal Radiotherapy for Left-sided Chest-wall plus Regional Nodal Irradiation',
+    authors: [
+      { name: 'Mohamathu Rafic' },
+      { name: 'Patricia Solomon' },
+      { name: 'Timothy Peace Balasingh Santosh' },
+      { name: 'Sujith Christopher', highlight: true },
+      { name: 'Selva Mani' },
+      { name: 'Paul Ravindran' },
+    ],
+    venue: 'Medical Dosimetry · Vol. 45, Issue 3, pp. 256–263',
+  },
+  {
+    year: '2020',
+    title: 'A new strategy for craniospinal axis localization and adaptive dosimetric verification using cone beam CT',
+    authors: [
+      { name: 'Mohamathu Rafic' },
+      { name: 'Sujith Christopher', highlight: true },
+      { name: 'Rajesh Balakrishnan' },
+      { name: 'Ebenezer Suman Babu' },
+      { name: 'Timothy Peace Balasingh Santosh' },
+    ],
+    venue: 'Reports of Practical Oncology & Radiotherapy · 25(2), 282–292',
+  },
+  {
+    year: '2019',
+    title: 'Escalation of optical transmittance and determination of diffusion co-efficient in low-bloom strength gelatin-based Fricke gel dosimeters',
+    authors: [
+      { name: 'Ebenezer Suman Babu' },
+      { name: 'Timothy Peace Balasingh Santosh' },
+      { name: 'Winfred MR' },
+      { name: 'Rafic KM' },
+      { name: 'Sujith Christopher', highlight: true },
+      { name: 'Ravindran BP' },
+    ],
+    venue: 'Radiation Physics and Chemistry · 156, 300–306',
+  },
+  {
+    year: '2019',
+    title: 'A new strategy to determine off-axis dosimetric leaf gap using optically stimulated luminescence dosimeters and an electronic portal imaging device',
+    authors: [
+      { name: 'Divyalakshmi' },
+      { name: 'Timothy Peace Balasingh Santosh' },
+      { name: 'KM Rafic' },
+      { name: 'Amalan Sebastin' },
+      { name: 'Jose Solomon' },
+      { name: 'Sujith Christopher', highlight: true },
+    ],
+  },
+  {
+    year: '2018',
+    title: 'Planar and Volumetric Imaging Dosimetry for Longitudinal Projection Extended Cone Beam CT based Adaptive Radiotherapy',
+    authors: [
+      { name: 'K Mohamathu Rafic' },
+      { name: 'Ebenezer Suman Babu' },
+      { name: 'S Timothy Peace Balasingh' },
+      { name: 'Sujith Christopher J', highlight: true },
+      { name: 'Abel Juhan Thomas' },
+      { name: 'B Paul Ravindran' },
+    ],
+  },
+  {
+    year: '2018',
+    title: 'A survey on intelligence based biometric techniques for authentication applications',
+    authors: [
+      { name: 'Martin Sagayam' },
+      { name: 'Felix Jacob' },
+      { name: 'Sujith Christopher', highlight: true },
+      { name: 'Santhosh A Immanuel' },
+      { name: 'Vamsidhar Reddy' },
+    ],
+    venue: 'Lecture Notes in Computational Vision and Biomechanics (Vol. 25)',
+  },
+];
+
+const conferencePubs: ConferencePub[] = [
+  {
+    year: '2022',
+    title: 'Design and Development Of 3D Printed Paediatric Phantom for Evaluating the Accuracy of Deformable Image Registration Technique and Patient Specific QA',
+    authors: [
+      { name: 'Sujith Christopher', highlight: true },
+      { name: 'Timothy Peace Balasingh Santosh' },
+      { name: 'Rafiq KM' },
+      { name: 'Kavin' },
+    ],
+    award: 'Best Paper Award',
+    conference: 'Prof. T. N. B. NEDUNGADI Best Paper Award, TN & PY AMPICON 2022',
+  },
+  {
+    year: '2022',
+    title: 'Gamified upper limb therapy using an instrumented arm skateboard (ArmBo) and the YOLO framework',
+    authors: [
+      { name: 'Sujith Christopher J', highlight: true },
+      { name: 'Samuel Elias' },
+      { name: 'Prem Kumar' },
+      { name: 'Sivakumar Balasubramanian' },
+    ],
+    conference: 'Annual Research Day 2022, CMC Vellore',
+    type: 'Poster',
+  },
+  {
+    year: '2022',
+    title: 'Realtime feedback using an instrumented arm skateboard for upper-limb rehabilitation',
+    authors: [
+      { name: 'Sujith Christopher J', highlight: true },
+      { name: 'Sivakumar Balasubramanian' },
+    ],
+    conference: 'Annual Research Day 2022, CMC Vellore',
+    type: 'Poster',
+  },
+  {
+    year: '2022',
+    title: 'Investigation on sensor fusion-based feedback in arm-skateboard for upper-limb rehabilitation',
+    authors: [
+      { name: 'Sujith Christopher J', highlight: true },
+      { name: 'Sivakumar Balasubramanian' },
+    ],
+    conference: 'Empower 2022, IIT-M',
+    type: 'Poster',
+  },
+  {
+    year: '2020',
+    title: 'Dynamic HU mapping and deformable image registration algorithm for adaptive treatment planning and dose calculation using neural network',
+    authors: [
+      { name: 'Sujith Christopher J', highlight: true },
+      { name: 'Timothy Peace Balasingh Santosh' },
+      { name: 'Rafic KM' },
+      { name: 'Paul Ravindran' },
+    ],
+    conference: 'Joint AAPM/COMP Virtual Meeting, 2020',
+    type: 'E-Poster',
+  },
+  {
+    year: '2019',
+    title: 'Respiratory phantom for patient specific quality assurance of 4D gated radiation therapy',
+    authors: [
+      { name: 'Sujith Christopher', highlight: true },
+      { name: 'Timothy Peace Balasingh Santosh' },
+      { name: 'Paul Ravindran' },
+    ],
+  },
+  {
+    year: '2019',
+    title: 'Wireless robotic phantom for quality assurance of 4D gated radiation therapy',
+    authors: [
+      { name: 'Sujith Christopher', highlight: true },
+      { name: 'Paul Ravindran' },
+    ],
+    award: 'First Prize',
+    conference: '9th Annual Research Day, CMC Vellore — First prize in Bioengineering category',
+  },
+];
+
+const JOURNALS_INITIAL = 2;
+const CONFERENCES_INITIAL = 3;
+
+function formatAuthors(authors: Author[]): string {
+  return authors
+    .map(a =>
+      a.highlight
+        ? `<span class="text-gray-900 dark:text-white font-bold underline decoration-primary-500/50">${a.name}</span>`
+        : a.name
+    )
+    .join(', ');
+}
+
+// ─── END DATA ─────────────────────────────────────────────────────────────────
 ---
 
 <Layout
@@ -36,113 +228,41 @@ import '../styles/global.css';
               <h2 class="text-xl font-semibold text-gray-900 dark:text-white">
                 Journal Publications
               </h2>
-              <p class="text-gray-500 dark:text-gray-400 text-sm mt-0.5">Peer Reviewed Articles (6)</p>
+              <p class="text-gray-500 dark:text-gray-400 text-sm mt-0.5">Peer Reviewed Articles ({journalPubs.length})</p>
             </div>
           </div>
 
           <div id="journal-publications" class="divide-y divide-gray-100 dark:divide-gray-800">
-            <!-- Journal Publication 6 - 2020 -->
-            <div class="pub-row">
-              <div class="flex items-baseline gap-4">
-                <span class="text-xs text-gray-400 dark:text-gray-500 font-mono w-10 shrink-0">2020</span>
-                <div>
-                  <p class="text-sm font-semibold text-gray-900 dark:text-white leading-snug mb-0.5">
-                    Dosimetric and Clinical Advantages of Adapting the DIBH Technique to Hybrid Solitary Dynamic Portal Radiotherapy for Left-sided Chest-wall plus Regional Nodal Irradiation
-                  </p>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">
-                    Mohamathu Rafic, Patricia Solomon, Timothy Peace Balasingh Santosh,
-                    <span class="text-gray-900 dark:text-white font-bold underline decoration-primary-500/50">Sujith Christopher</span>, Selva Mani, Paul Ravindran
-                  </p>
-                  <p class="text-xs text-gray-500 dark:text-gray-500 italic mt-0.5">Medical Dosimetry · Vol. 45, Issue 3, pp. 256–263</p>
+            {journalPubs.slice(0, JOURNALS_INITIAL).map(pub => (
+              <div class="pub-row">
+                <div class="flex items-baseline gap-4">
+                  <span class="text-xs text-gray-400 dark:text-gray-500 font-mono w-10 shrink-0">{pub.year}</span>
+                  <div>
+                    <p class="text-sm font-semibold text-gray-900 dark:text-white leading-snug mb-0.5">{pub.title}</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400" set:html={formatAuthors(pub.authors)}></p>
+                    {pub.venue && (
+                      <p class="text-xs text-gray-500 dark:text-gray-500 italic mt-0.5">{pub.venue}</p>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
+            ))}
 
-            <!-- Journal Publication 5 - 2020 -->
-            <div class="pub-row">
-              <div class="flex items-baseline gap-4">
-                <span class="text-xs text-gray-400 dark:text-gray-500 font-mono w-10 shrink-0">2020</span>
-                <div>
-                  <p class="text-sm font-semibold text-gray-900 dark:text-white leading-snug mb-0.5">
-                    A new strategy for craniospinal axis localization and adaptive dosimetric verification using cone beam CT
-                  </p>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">
-                    Mohamathu Rafic,
-                    <span class="text-gray-900 dark:text-white font-bold underline decoration-primary-500/50">Sujith Christopher</span>,
-                    Rajesh Balakrishnan, Ebenezer Suman Babu, Timothy Peace Balasingh Santosh
-                  </p>
-                  <p class="text-xs text-gray-500 dark:text-gray-500 italic mt-0.5">Reports of Practical Oncology & Radiotherapy · 25(2), 282–292</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Hidden journals container -->
             <div id="hidden-journals" class="hidden divide-y divide-gray-100 dark:divide-gray-800">
-              <!-- Journal Publication 4 - 2019 -->
-              <div class="pub-row">
-                <div class="flex items-baseline gap-4">
-                  <span class="text-xs text-gray-400 dark:text-gray-500 font-mono w-10 shrink-0">2019</span>
-                  <div>
-                    <p class="text-sm font-semibold text-gray-900 dark:text-white leading-snug mb-0.5">
-                      Escalation of optical transmittance and determination of diffusion co-efficient in low-bloom strength gelatin-based Fricke gel dosimeters
-                    </p>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">
-                      Ebenezer Suman Babu, Timothy Peace Balasingh Santosh, Winfred MR, Rafic KM,
-                      <span class="text-gray-900 dark:text-white font-bold underline decoration-primary-500/50">Sujith Christopher</span>, Ravindran BP
-                    </p>
-                    <p class="text-xs text-gray-500 dark:text-gray-500 italic mt-0.5">Radiation Physics and Chemistry · 156, 300–306</p>
+              {journalPubs.slice(JOURNALS_INITIAL).map(pub => (
+                <div class="pub-row">
+                  <div class="flex items-baseline gap-4">
+                    <span class="text-xs text-gray-400 dark:text-gray-500 font-mono w-10 shrink-0">{pub.year}</span>
+                    <div>
+                      <p class="text-sm font-semibold text-gray-900 dark:text-white leading-snug mb-0.5">{pub.title}</p>
+                      <p class="text-sm text-gray-600 dark:text-gray-400" set:html={formatAuthors(pub.authors)}></p>
+                      {pub.venue && (
+                        <p class="text-xs text-gray-500 dark:text-gray-500 italic mt-0.5">{pub.venue}</p>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-
-              <!-- Journal Publication 3 -->
-              <div class="pub-row">
-                <div class="flex items-baseline gap-4">
-                  <span class="text-xs text-gray-400 dark:text-gray-500 font-mono w-10 shrink-0">2019</span>
-                  <div>
-                    <p class="text-sm font-semibold text-gray-900 dark:text-white leading-snug mb-0.5">
-                      A new strategy to determine off-axis dosimetric leaf gap using optically stimulated luminescence dosimeters and an electronic portal imaging device
-                    </p>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">
-                      Divyalakshmi, Timothy Peace Balasingh Santosh, KM Rafic, Amalan Sebastin, Jose Solomon,
-                      <span class="text-gray-900 dark:text-white font-bold underline decoration-primary-500/50">Sujith Christopher</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Journal Publication 2 -->
-              <div class="pub-row">
-                <div class="flex items-baseline gap-4">
-                  <span class="text-xs text-gray-400 dark:text-gray-500 font-mono w-10 shrink-0">2018</span>
-                  <div>
-                    <p class="text-sm font-semibold text-gray-900 dark:text-white leading-snug mb-0.5">
-                      Planar and Volumetric Imaging Dosimetry for Longitudinal Projection Extended Cone Beam CT based Adaptive Radiotherapy
-                    </p>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">
-                      K Mohamathu Rafic, Ebenezer Suman Babu, S Timothy Peace Balasingh,
-                      <span class="text-gray-900 dark:text-white font-bold underline decoration-primary-500/50">Sujith Christopher J</span>, Abel Juhan Thomas, B Paul Ravindran
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Journal Publication 1 -->
-              <div class="pub-row">
-                <div class="flex items-baseline gap-4">
-                  <span class="text-xs text-gray-400 dark:text-gray-500 font-mono w-10 shrink-0">2018</span>
-                  <div>
-                    <p class="text-sm font-semibold text-gray-900 dark:text-white leading-snug mb-0.5">
-                      A survey on intelligence based biometric techniques for authentication applications
-                    </p>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">
-                      Martin Sagayam, Felix Jacob,
-                      <span class="text-gray-900 dark:text-white font-bold underline decoration-primary-500/50">Sujith Christopher</span>, Santhosh A Immanuel, Vamsidhar Reddy
-                    </p>
-                    <p class="text-xs text-gray-500 dark:text-gray-500 italic mt-0.5">Lecture Notes in Computational Vision and Biomechanics (Vol. 25)</p>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
 
             <!-- Show More Button -->
@@ -171,122 +291,55 @@ import '../styles/global.css';
               <h2 class="text-xl font-semibold text-gray-900 dark:text-white">
                 Conferences & Awards
               </h2>
-              <p class="text-gray-500 dark:text-gray-400 text-sm mt-0.5">Presentations & Recognitions (7)</p>
+              <p class="text-gray-500 dark:text-gray-400 text-sm mt-0.5">Presentations & Recognitions ({conferencePubs.length})</p>
             </div>
           </div>
 
           <div id="conference-publications" class="divide-y divide-gray-100 dark:divide-gray-800">
-            <!-- Conference Award - Best Paper -->
-            <div class="pub-row">
-              <div class="flex items-baseline gap-4">
-                <span class="text-xs text-gray-400 dark:text-gray-500 font-mono w-10 shrink-0">2022</span>
-                <div>
-                  <p class="text-sm font-semibold text-gray-900 dark:text-white leading-snug mb-0.5">
-                    <span class="text-xs font-semibold text-amber-700 dark:text-amber-400 mr-1">Best Paper Award —</span>Design and Development Of 3D Printed Paediatric Phantom for Evaluating the Accuracy of Deformable Image Registration Technique and Patient Specific QA
-                  </p>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">
-                    <span class="text-gray-900 dark:text-white font-bold underline decoration-accent-500/50">Sujith Christopher</span>, Timothy Peace Balasingh Santosh, Rafiq KM, Kavin
-                  </p>
-                  <p class="text-xs text-gray-500 dark:text-gray-500 italic mt-0.5">Prof. T. N. B. NEDUNGADI Best Paper Award, TN & PY AMPICON 2022</p>
+            {conferencePubs.slice(0, CONFERENCES_INITIAL).map(pub => (
+              <div class="pub-row">
+                <div class="flex items-baseline gap-4">
+                  <span class="text-xs text-gray-400 dark:text-gray-500 font-mono w-10 shrink-0">{pub.year}</span>
+                  <div>
+                    <p class="text-sm font-semibold text-gray-900 dark:text-white leading-snug mb-0.5">
+                      {pub.award && (
+                        <span class="text-xs font-semibold text-amber-700 dark:text-amber-400 mr-1">{pub.award} —</span>
+                      )}
+                      {pub.title}
+                    </p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400" set:html={formatAuthors(pub.authors)}></p>
+                    {(pub.conference || pub.type) && (
+                      <p class="text-xs text-gray-500 dark:text-gray-500 italic mt-0.5">
+                        {pub.conference}{pub.type ? ` (${pub.type})` : ''}
+                      </p>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-
-            <!-- Conference Item -->
-            <div class="pub-row">
-              <div class="flex items-baseline gap-4">
-                <span class="text-xs text-gray-400 dark:text-gray-500 font-mono w-10 shrink-0">2022</span>
-                <div>
-                  <p class="text-sm font-semibold text-gray-900 dark:text-white leading-snug mb-0.5">
-                    Gamified upper limb therapy using an instrumented arm skateboard (ArmBo) and the YOLO framework
-                  </p>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">
-                    <span class="text-gray-900 dark:text-white font-bold underline decoration-primary-500/50">Sujith Christopher J</span>, Samuel Elias, Prem Kumar, Sivakumar Balasubramanian
-                  </p>
-                  <p class="text-xs text-gray-500 dark:text-gray-500 italic mt-0.5">Annual Research Day 2022, CMC Vellore (Poster)</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Conference Item 5 -->
-            <div class="pub-row">
-              <div class="flex items-baseline gap-4">
-                <span class="text-xs text-gray-400 dark:text-gray-500 font-mono w-10 shrink-0">2022</span>
-                <div>
-                  <p class="text-sm font-semibold text-gray-900 dark:text-white leading-snug mb-0.5">
-                    Realtime feedback using an instrumented arm skateboard for upper-limb rehabilitation
-                  </p>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">
-                    <span class="text-gray-900 dark:text-white font-bold underline decoration-primary-500/50">Sujith Christopher J</span>, Sivakumar Balasubramanian
-                  </p>
-                  <p class="text-xs text-gray-500 dark:text-gray-500 italic mt-0.5">Annual Research Day 2022, CMC Vellore (Poster)</p>
-                </div>
-              </div>
-            </div>
+            ))}
 
             <div id="hidden-conferences" class="hidden divide-y divide-gray-100 dark:divide-gray-800">
-              <!-- Conference Publication 4 - 2022 -->
-              <div class="pub-row">
-                <div class="flex items-baseline gap-4">
-                  <span class="text-xs text-gray-400 dark:text-gray-500 font-mono w-10 shrink-0">2022</span>
-                  <div>
-                    <p class="text-sm font-semibold text-gray-900 dark:text-white leading-snug mb-0.5">
-                      Investigation on sensor fusion-based feedback in arm-skateboard for upper-limb rehabilitation
-                    </p>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">
-                      <span class="text-gray-900 dark:text-white font-bold underline decoration-primary-500/50">Sujith Christopher J</span>, Sivakumar Balasubramanian
-                    </p>
-                    <p class="text-xs text-gray-500 dark:text-gray-500 italic mt-0.5">Empower 2022, IIT-M (Poster)</p>
+              {conferencePubs.slice(CONFERENCES_INITIAL).map(pub => (
+                <div class="pub-row">
+                  <div class="flex items-baseline gap-4">
+                    <span class="text-xs text-gray-400 dark:text-gray-500 font-mono w-10 shrink-0">{pub.year}</span>
+                    <div>
+                      <p class="text-sm font-semibold text-gray-900 dark:text-white leading-snug mb-0.5">
+                        {pub.award && (
+                          <span class="text-xs font-semibold text-amber-700 dark:text-amber-400 mr-1">{pub.award} —</span>
+                        )}
+                        {pub.title}
+                      </p>
+                      <p class="text-sm text-gray-600 dark:text-gray-400" set:html={formatAuthors(pub.authors)}></p>
+                      {(pub.conference || pub.type) && (
+                        <p class="text-xs text-gray-500 dark:text-gray-500 italic mt-0.5">
+                          {pub.conference}{pub.type ? ` (${pub.type})` : ''}
+                        </p>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-
-              <!-- Conference Publication 3 - 2020 -->
-              <div class="pub-row">
-                <div class="flex items-baseline gap-4">
-                  <span class="text-xs text-gray-400 dark:text-gray-500 font-mono w-10 shrink-0">2020</span>
-                  <div>
-                    <p class="text-sm font-semibold text-gray-900 dark:text-white leading-snug mb-0.5">
-                      Dynamic HU mapping and deformable image registration algorithm for adaptive treatment planning and dose calculation using neural network
-                    </p>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">
-                      <span class="text-gray-900 dark:text-white font-bold underline decoration-primary-500/50">Sujith Christopher J</span>, Timothy Peace Balasingh Santosh, Rafic KM, Paul Ravindran
-                    </p>
-                    <p class="text-xs text-gray-500 dark:text-gray-500 italic mt-0.5">Joint AAPM/COMP Virtual Meeting, 2020 (E-Poster)</p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Conference Publication 2 -->
-              <div class="pub-row">
-                <div class="flex items-baseline gap-4">
-                  <span class="text-xs text-gray-400 dark:text-gray-500 font-mono w-10 shrink-0">2019</span>
-                  <div>
-                    <p class="text-sm font-semibold text-gray-900 dark:text-white leading-snug mb-0.5">
-                      Respiratory phantom for patient specific quality assurance of 4D gated radiation therapy
-                    </p>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">
-                      <span class="text-gray-900 dark:text-white font-bold underline decoration-primary-500/50">Sujith Christopher</span>, Timothy Peace Balasingh Santosh, Paul Ravindran
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- First Prize Item -->
-              <div class="pub-row">
-                <div class="flex items-baseline gap-4">
-                  <span class="text-xs text-gray-400 dark:text-gray-500 font-mono w-10 shrink-0">2019</span>
-                  <div>
-                    <p class="text-sm font-semibold text-gray-900 dark:text-white leading-snug mb-0.5">
-                      <span class="text-xs font-semibold text-amber-700 dark:text-amber-400 mr-1">First Prize —</span>Wireless robotic phantom for quality assurance of 4D gated radiation therapy
-                    </p>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">
-                      <span class="text-gray-900 dark:text-white font-bold underline decoration-yellow-500/50">Sujith Christopher</span>, Paul Ravindran
-                    </p>
-                    <p class="text-xs text-gray-500 dark:text-gray-500 italic mt-0.5">9th Annual Research Day, CMC Vellore — First prize in Bioengineering category</p>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
 
             <!-- Show More Button -->
